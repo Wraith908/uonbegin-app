@@ -5,14 +5,14 @@ class StaffDirectory extends Component {
     return(
       <div>
         <div>
-          <!--This-is-gonna-be-the-search-bar-->
+          /*This-is-gonna-be-the-search-bar*/
 
-          <!--This-is-gonna-be-the-results-list-->
+          /*This-is-gonna-be-the-results-list*/
 
         </div>
         <div>
-          <!--This-is-gonna-be-the-section-that-shows-the-chosen-result-->
-          
+          /*This-is-gonna-be-the-section-that-shows-the-chosen-result*/
+
         </div>
       </div>
     );
