@@ -1,12 +1,23 @@
 import React, {Component} from 'react';
 
 class LoginPage extends Component {
+  email = "";
+  password = "";
+
+  submit = (e: Synthetic Evenet) => {
+    e.preventDefault();
+
+    axios.post('http://localhost:8000/api/login', {
+      email: this.email;
+      password: this.password;
+    });
+  }
   render() {
     return (
       <div>
         <form>
           <h1>Login</h1>
-          <label>Username</label>
+          <label>Email</label>
           <input />
           <label>Password</label>
           <input />
