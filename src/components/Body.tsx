@@ -5,6 +5,7 @@ import StaffDirectory from './StaffDirectory';
 import WeekOneSurvivalPack from './WeekOneSurvivalPack';
 import UniversityExpectations from './UniversityExpectations';
 import FAQsAndTestimonials from './FAQsAndTestimonials';
+import ChatBot from './chatbot';
 import NoMatch from './NoMatch';
 
 class Body extends Component {
@@ -19,6 +20,7 @@ class Body extends Component {
               <Link to = "/week-one-survival-pack" className = "nav-link">Week 1 Survival Pack</Link>
               <Link to = "/university-expectations" className = "nav-link">What to expect at University</Link>
               <Link to = "/faqs-and-testimonials" className = "nav-link">FAQs and Testionials</Link>
+              <Link to = "/chatbot" classname = "nav-link">Chatbot</Link>
             </nav>
           </header>
           <Switch>
@@ -36,6 +38,9 @@ class Body extends Component {
               </Route>
               <Route path = "/faqs-and-testimonials">
                 <FAQsAndTestimonials />
+              </Route>
+              <Route path = "/chatbot">
+                <ChatBot />
               </Route>
               <Route path = "*">
                 <NoMatch />
