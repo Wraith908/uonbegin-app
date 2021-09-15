@@ -5,7 +5,9 @@ class StaffSearchBrief extends Component {
   tiles will have to fit on the screen at the same time*/
   render() {
     return(
-
+      <div>
+        <p>Hooroo</p>
+      </div>
     );
   }
 }

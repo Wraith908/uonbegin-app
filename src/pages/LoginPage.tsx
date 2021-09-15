@@ -4,7 +4,7 @@ class LoginPage extends Component {
   email = "";
   password = "";
 
-  submit = (e: Synthetic Evenet) => {
+  submit = (e: Synthetic Event) => {
     e.preventDefault();
 
     axios.post('http://localhost:8000/api/login', {
