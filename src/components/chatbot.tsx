@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
+import React, {Component, SyntheticEvent} from 'react';
 import "./subcomponents/search"
 import Example from './subcomponents/search';
 
 /*This section was done by Ronit Ronit*/
 
 class ChatBot extends Component{
-  constructor(props) {
-    super(props);
+  constructor(message: String, reply: String) {
+    super(message,reply);
      // Set initial state
-     this.state = {message : undefined, reply:""}
+     this.state = {message : "", reply: ""};
 
     // Binding this keyword
     this.handleChange = this.handleChange.bind(this)
@@ -17,7 +17,7 @@ class ChatBot extends Component{
   }
 
 
-  handleChange(event, { newValue }) {
+  handleChange(event: SyntheticEvent, newValue: String) {
     //console.log(event.target.value)
 
     this.setState({
@@ -28,7 +28,7 @@ class ChatBot extends Component{
     console.log('1',newValue);
   }
 
-  handleChange2(val) {
+  handleChange2(val: String) {
     console.log('2', val)
     // if(val){
     //   this.setState({
@@ -43,7 +43,7 @@ class ChatBot extends Component{
     var div = document.createElement('div');
     var b = document.createElement('b');
     div.setAttribute("class", "usermessage");
-    b.innerHTML =this.state.message;
+    b.innerHTML = this.state.message;
     var img = document.createElement('img');
     img.src = 'images/user.png';
     div.append(img);

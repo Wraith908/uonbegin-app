@@ -20,7 +20,7 @@ class Body extends Component {
               <Link to = "/week-one-survival-pack" className = "nav-link">Week 1 Survival Pack</Link>
               <Link to = "/university-expectations" className = "nav-link">What to expect at University</Link>
               <Link to = "/faqs-and-testimonials" className = "nav-link">FAQs and Testionials</Link>
-              <Link to = "/chatbot" classname = "nav-link">Chatbot</Link>
+              <Link to = "/chatbot" className = "nav-link">Chatbot</Link>
             </nav>
           </header>
           <Switch>
