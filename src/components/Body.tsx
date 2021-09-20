@@ -6,9 +6,13 @@ import WeekOneSurvivalPack from './WeekOneSurvivalPack';
 import UniversityExpectations from './UniversityExpectations';
 import FAQsAndTestimonials from './FAQsAndTestimonials';
 import NoMatch from './NoMatch';
+import axios from 'axios';
 
 class Body extends Component {
   render() {
+    var editorLoggedIn = false;
+
+    axios.get('httpL//localhost:8000/api/user')
     return (
       <div>
         <Router>
@@ -19,7 +23,10 @@ class Body extends Component {
               <Link to = "/week-one-survival-pack" className = "nav-link">Week 1 Survival Pack</Link>
               <Link to = "/university-expectations" className = "nav-link">What to expect at University</Link>
               <Link to = "/faqs-and-testimonials" className = "nav-link">FAQs and Testionials</Link>
-              /*Might be a good idea to add a special login button around here somewhere*/
+              {editorLoggedIn ?
+                <Link to = "/logout" className = "logout-link"> Logout </Link> :
+                <Link to = "/login" className = "login-link"> Login </Link>
+              }
             </nav>
           </header>
           <Switch>

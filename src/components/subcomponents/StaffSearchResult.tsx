@@ -5,8 +5,8 @@ class StaffSearchResults extends Component {
   render() {
     return(
       <div>
-        <h1>{this.props.profName}</h1>
-        
+        <h1>Bastard Face</h1>
+
       </div>
     );
   }
