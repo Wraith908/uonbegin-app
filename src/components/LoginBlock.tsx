@@ -4,23 +4,16 @@ import axios from 'axios';
 class LoginBlock extends Component {
   email = "";
   password = "";
-  submit = (e: SyntheticEvent) => {
+  submit = async (e: SyntheticEvent) => {
+
     e.preventDefault();
 
-    var loginSuccess = false;
-
-    axios.post('http://localhost:8000/api/login', {
+    const response = axios.post('http://localhost:8000/api/login', {
       email: this.email,
       password: this.password
-    }).then(res => {
-      console.log(res);
     });
 
-    if (loginSuccess) {
-
-    } else {
-
-    }
+    console.log(response);
   }
   render() {
     return (
