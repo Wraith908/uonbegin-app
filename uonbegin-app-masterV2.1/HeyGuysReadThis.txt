@@ -1,0 +1,24 @@
+IMPORTANT:
+
+This folder, as well as many of the files inside it, have been altered. This is NOT the original UONBegin folder.
+This file is a log of the changes I've made. There are still changes that need to be made (and I'm working on 
+them), but we'll discuss those during meetings/on Slack.
+
+!!! ALSO - I created this folder without the "node_modules" folder inside it. So if there's any serious problems, 
+it mayyy be because of that.
+
+Changes:
+1. Classname "nav-link" in 'Body.tsx' - In the 'Body.tsx' file, I've changed the classnames of each of the navbar 
+elements (e.g. nav-link1, nav-link2, nav-link3, etc.) so I can manipulate the CSS of each link individually; 
+that is, to make them look like buttons.
+
+2. Added copyright information to the footer
+
+3. Inserted div 'ids' into: 
+	- 'UniversityServices.tsx' 
+	- 'StaffDirectory.tsx' 
+	- 'WeekOneSurvivalPack.tsx' 
+	- 'UniversityExpectations.tsx' 
+	- 'FAQsAndTestimonials.tsx' 
+
+4. Made various other additions to the 'App.css' file
