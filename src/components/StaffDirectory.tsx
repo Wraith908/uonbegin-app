@@ -13,7 +13,7 @@ class StaffDirectory extends Component {
         </div>
         <div>
           {/*This-is-gonna-be-the-section-that-shows-the-chosen-result*/}
-
+          <p>Testing</p>
         </div>
       </div>
     );
