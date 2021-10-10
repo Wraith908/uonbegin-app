@@ -5,8 +5,8 @@ class FAQsAndTestimonials extends Component {
   information = "";
   render() {
     return(
-      <div>
-        <h1>FAQsAndTestimonials</h1>
+      <div id="FAQsAndTestimonials">
+        <h1>FAQs And Testimonials</h1>
         <BasicInfoBlock>
           Does this work?
           How about this?

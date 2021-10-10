@@ -3,12 +3,12 @@ import React, {Component} from 'react';
 class StaffDirectory extends Component {
   render() {
     return(
-      <div>
+      <div id="staffDirectory">
         <div>
           {/*This-is-gonna-be-the-search-bar*/
 
           /*This-is-gonna-be-the-results-list*/}
-          <h1>Is this working?</h1>
+          <h1>Staff Directory</h1>
 
         </div>
         <div>

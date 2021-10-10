@@ -1,3 +1,197 @@
+/** ===================================== EDITS by Aaron ============================================== **/
+
+@charset "UTF-8";
+
+html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+header {                /* Added by Aaron - 
+                        <<< NOTE -> 'header' and 'navbar' seem to be the same thing...? >>> */
+  background: lightskyblue; /* overriden by the 'navbar' background element - delete later... */
+  /*text-size-adjust: 5em; -- does not work... */
+  padding: 15px;
+  padding-top: 3em;
+}
+
+/*body {               --> Added by Aaron --> work on this later... 
+  background: slategray;
+}*/
+
+.navbar {               /* Added by Aaron - try messing around with this... */
+  background: slategray;
+  text-align: right;
+}
+
+
+/**********************************/
+/*      'nav-link' changes        */
+/**********************************/
+
+/*ORIGINAL classname for 'navbar' elements
+.nav-link {             /* Added by Aaron --> Changes aspects of the 'navbar' links 
+  color: white;
+  font-size: 1.1em;
+  /*background-color: blue;
+  padding: 5px;
+  padding-right: 1.5em; 
+}*/
+
+
+/*NEW classnames for 'navbar' elements*/
+/* - University Services - */
+.nav-link1 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
+  color: white;
+  background-color: blue;
+  padding: 5px;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  transform: skew(-20deg); /* does not work... --- not a high priority at this point --- */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* - Staff Directory - */
+.nav-link2 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
+  color: white;
+  background-color: blue;
+  padding: 5px;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* - Week 1 Survival Pack - */
+.nav-link3 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
+  color: white;
+  background-color: blue;
+  padding: 5px;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* - What to expect at University - */
+.nav-link4 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
+  color: white;
+  background-color: blue;
+  padding: 5px;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* - FAQs and Testimonials - */
+.nav-link5 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
+  color: white;
+  background-color: blue;
+  padding: 5px;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/*************************************/
+
+
+.login-link {           /* Added by Aaron --> Changes aspects of the 'Login' navbar link - separate to the other links */
+  color: white;
+  background-color: blue;
+  padding: 5px;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/*************************************/
+/*     University Services page      */
+/*************************************/
+
+#uniServices h1 {       /* Added by Aaron - alters aspects of the 'University Services' banner/title 
+                          NOTE: 'div id' was added to the div in 'UniversityServices.tsx' */
+  background-color: lightskyblue;
+  padding: 10px;
+  margin-top: auto;
+  font-size: 1.5em;
+}
+
+/*************************************/
+/*       Staff Directory page        */
+/*************************************/
+
+
+#staffDirectory h1 {    /* leave this for now... */
+  background-color: lightskyblue;
+  text-align: left;
+  margin-top: auto;
+  padding: 10px;
+  font-size: 1.5em;
+  width: fit-content;   /* mayyybe use something else later... */
+}
+
+
+/*************************************/
+/*    Week 1 Survival Pack page      */
+/*************************************/
+
+
+#week1SurvivalPack h1 {
+  background-color: lightskyblue;
+  padding: 10px;
+  margin-top: auto;
+  font-size: 1.5em;
+}
+
+
+/***************************************/
+/*  What to expect at University page  */
+/***************************************/
+
+
+#uniExpectations h1 {
+  background-color: lightskyblue;
+  padding: 10px;
+  margin-top: auto;
+  font-size: 1.5em;
+}
+
+
+/*************************************/
+/*    FAQs and Testimonials page     */
+/*************************************/
+
+
+#FAQsAndTestimonials h1 {
+  background-color: lightskyblue;
+  padding: 10px;
+  margin-top: auto;
+  font-size: 1.5em;
+}
+
+
+
+footer {               /* Added by Aaron */
+  background: slategray;
+  padding: 10px 10px 10px 10px;
+  position: fixed;     /* works buut try something else... */
+  bottom: 0;
+  width: 100%;        /* ??? Get rid of this... */
+  /*width: 100%;          doesn't really work... hmm */
+}
+
+/** ========================================= END OF CHANGES ============================================ **/
+
 .App {
   text-align: center;
 }
@@ -15,11 +209,11 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   display: flex;
-  flex-direction: column;
+  /*flex-direction: column;*/
   align-items: center;
-  justify-content: center;
+  /*justify-content: center;*/
   font-size: calc(10px + 2vmin);
   color: white;
 }
