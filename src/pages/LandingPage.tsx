@@ -7,7 +7,8 @@ class LandingPage extends Component {
       <div>
         <Body />
         <footer id = "footer">
-            <p>Jacob Neilands: C3303694 | Aaron McCool: c3279449 | Ronit Ronit: c3319077 | Aun Ali: 3216616</p>
+            <p>Jacob Neilands: C3303694 | Aaron McCool: C3279449 | Ronit Ronit: C3319077 | Aun Ali: C3216616</p>
+            <p>&copy; UONBegin 2021. All Rights Reserved.</p>
         </footer>
       </div>
     );
