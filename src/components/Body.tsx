@@ -5,6 +5,7 @@ import StaffDirectory from './StaffDirectory';
 import WeekOneSurvivalPack from './WeekOneSurvivalPack';
 import UniversityExpectations from './UniversityExpectations';
 import FAQsAndTestimonials from './FAQsAndTestimonials';
+import Chatbot from './Chatbot';
 import NoMatch from './NoMatch';
 import axios from 'axios';
 
@@ -23,6 +24,7 @@ class Body extends Component {
               <Link to = "/week-one-survival-pack" className = "nav-link">Week 1 Survival Pack</Link>
               <Link to = "/university-expectations" className = "nav-link">What to expect at University</Link>
               <Link to = "/faqs-and-testimonials" className = "nav-link">FAQs and Testionials</Link>
+              <Link to = "/chatbot" className = "nav-link">Chatbot</Link>
               {editorLoggedIn ?
                 <Link to = "/logout" className = "logout-link"> Logout </Link> :
                 <Link to = "/login" className = "login-link"> Login </Link>
@@ -45,6 +47,9 @@ class Body extends Component {
               <Route path = "/faqs-and-testimonials">
                 <FAQsAndTestimonials />
               </Route>
+              <Route path = "/chatbot">
+                <Chatbot>
+              <Route>
               <Route path = "*">
                 <NoMatch />
               </Route>
