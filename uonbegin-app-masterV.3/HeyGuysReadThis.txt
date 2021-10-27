@@ -1,0 +1,27 @@
+IMPORTANT:
+
+This is an updated version of my stuff - tweaked bits and pieces, added some things. Again, this folder was 
+uploaded without the "node_modules" folder inside.
+
+Changes:
+1. Classname "nav-link" in 'Body.tsx' - In the 'Body.tsx' file, I've changed the classnames of each of the navbar 
+elements (e.g. nav-link1, nav-link2, nav-link3, etc.) so I can manipulate the CSS of each link individually; 
+that is, to make them look like buttons.
+
+2. Added copyright information to the footer
+
+3. Inserted div 'ids' into: 
+	- 'UniversityServices.tsx' 
+	- 'StaffDirectory.tsx' 
+	- 'WeekOneSurvivalPack.tsx' 
+	- 'UniversityExpectations.tsx' 
+	- 'FAQsAndTestimonials.tsx' 
+
+4. Made various other additions to the 'App.css' file
+______________________________________________________________________________________
+As of 27/10/21:
+
+- Made changes to the navbar
+- Made additions to the footer
+- Fixed the page's margin so the body looks correct
+- Various other tweaks to the css
