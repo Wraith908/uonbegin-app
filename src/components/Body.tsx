@@ -5,6 +5,7 @@ import StaffDirectory from './StaffDirectory';
 import WeekOneSurvivalPack from './WeekOneSurvivalPack';
 import UniversityExpectations from './UniversityExpectations';
 import FAQsAndTestimonials from './FAQsAndTestimonials';
+import LoginBlock from './LoginBlock';
 import NoMatch from './NoMatch';
 import axios from 'axios';
 
@@ -12,7 +13,8 @@ class Body extends Component {
   render() {
     var editorLoggedIn = false;
 
-    axios.get('httpL//localhost:8000/api/user')
+    axios.get('httpL//localhost:8000/api/user');
+
     return (
       <div>
         <Router>
@@ -44,6 +46,9 @@ class Body extends Component {
               </Route>
               <Route path = "/faqs-and-testimonials">
                 <FAQsAndTestimonials />
+              </Route>
+              <Route path = "/login">
+                <LoginBlock />
               </Route>
               <Route path = "*">
                 <NoMatch />
