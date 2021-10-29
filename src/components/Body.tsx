@@ -5,7 +5,7 @@ import StaffDirectory from './StaffDirectory';
 import WeekOneSurvivalPack from './WeekOneSurvivalPack';
 import UniversityExpectations from './UniversityExpectations';
 import FAQsAndTestimonials from './FAQsAndTestimonials';
-import Chatbot from './Chatbot';
+import Chatbot from './webbot/chat-bot';
 import NoMatch from './NoMatch';
 import axios from 'axios';
 
@@ -48,8 +48,8 @@ class Body extends Component {
                 <FAQsAndTestimonials />
               </Route>
               <Route path = "/chatbot">
-                <Chatbot>
-              <Route>
+                <Chatbot />
+                </Route>
               <Route path = "*">
                 <NoMatch />
               </Route>
