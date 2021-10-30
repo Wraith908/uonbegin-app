@@ -33,19 +33,19 @@ const Body = () => {
         </header>
         <Switch>
             <Route exact path = "/">
-              <InfoContainer />
+              <InfoContainer title = "University Service" section_id = {1} />
             </Route>
             <Route path = "/directory">
               <StaffDirectory />
             </Route>
             <Route path = "/week-one-survival-pack">
-              <InfoContainer />
+              <InfoContainer title = "Week One Survival Pack" section_id = {2} />
             </Route>
             <Route path = "/university-expectations">
-              <InfoContainer />
+              <InfoContainer title = "University Expectations" section_id = {3} />
             </Route>
             <Route path = "/faqs-and-testimonials">
-              <InfoContainer />
+              <InfoContainer title = "FAQs and Testimonials" section_id = {4} />
             </Route>
             <Route path = "/login">
               <Login user = {user} setUser = {setUser}/>

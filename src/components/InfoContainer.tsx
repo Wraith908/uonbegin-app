@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../App.css';
 import BasicInfoBlock from './subcomponents/BasicInfoBlock';
 import { Information } from '../models/information';
 
@@ -21,15 +22,14 @@ const InfoContainer = (props: {title: string, section_id: number}) => {
   },[]);
 
   return(
-    <div id="FAQsAndTestimonials">
-      <h1>FAQs And Testimonials</h1>
+    <div id={props.title}>
+      <h1>{props.title}</h1>
       {information.map((info: Information) => {
-        if (info.section == 4) {
+        if (info.section == props.section_id) {
           return (
-            <div>
+            <div key = {info.id}>
               <h2>{info.title}</h2>
               <p>{info.body}</p>
-
             </div>
           );
         }
