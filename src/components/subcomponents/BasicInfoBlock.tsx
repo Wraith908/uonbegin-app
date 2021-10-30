@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
 
-class BasicInfoBlock extends Component {
-  render() {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+const BasicInfoBlock = () => {
+  return (
+    <div>
+    </div>
+  );
+};
 
 export default BasicInfoBlock;
