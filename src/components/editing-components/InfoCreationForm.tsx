@@ -1,12 +1,19 @@
 import React, {SyntheticEvent, useState} from 'react';
 import axios from 'axios';
 
-const InfoCreationForm = () => {
+const InfoCreationForm = (props: {section_id: number}) => {
   const [count, setCount] = useState(0);
+
+  const submit = () => {
+
+  }
+
   return (
     <div>
-      Count {count} <br />
-      <input type ="number" onChange = {e => setCount(parseInt(e.target.value))}/>
+      <form onSubmit = {submit}>
+        <input type = "text" placeholder = "Header" required />
+        <input type = "text" placeholder = "Body of the information block" required />
+      </form>
     </div>
   )
 }; export default InfoCreationForm;

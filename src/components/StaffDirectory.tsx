@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { User } from '../models/user';
 
-const StaffDirectory = () => {
+const StaffDirectory = (props: {user: User}) => {
   return(
     <div id="staffDirectory">
       <div>

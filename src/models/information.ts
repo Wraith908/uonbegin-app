@@ -3,7 +3,7 @@ export class Information {
     public id = 0,
     public title = '',
     public body = '',
-    public section = 0,
+    public section_id = 0,
     public picture_id = 0
   ) {}
 }

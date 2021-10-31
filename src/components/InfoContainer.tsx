@@ -3,9 +3,11 @@ import axios from 'axios';
 import '../App.css';
 import BasicInfoBlock from './subcomponents/BasicInfoBlock';
 import { Information } from '../models/information';
+import { User } from '../models/user';
 
-const InfoContainer = (props: {title: string, section_id: number}) => {
+const InfoContainer = (props: {title: string, section_id: number, user: User}) => {
   const [information,setInformation] = useState([]);
+  const [newInformationBlocks, setNewInformationBlocks] = useState([]);
 
   useEffect(() => {
     (
@@ -25,12 +27,10 @@ const InfoContainer = (props: {title: string, section_id: number}) => {
     <div id={props.title}>
       <h1>{props.title}</h1>
       {information.map((info: Information) => {
-        if (info.section == props.section_id) {
+        if (props.section_id == info.section_id) {
           return (
-            <div key = {info.id}>
-              <h2>{info.title}</h2>
-              <p>{info.body}</p>
-            </div>
+              <BasicInfoBlock id = {info.id} title = {info.title} body = {info.body}
+              section_id = {info.section_id} picture_id = {info.picture_id} user = {props.user} />
           );
         }
       })}
