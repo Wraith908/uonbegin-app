@@ -14,7 +14,6 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
         try {
           const {data} = await axios.get('info');
           setInformation(data.data);
-          console.log(data);
         } catch (error) {
           console.log(error);
         }
@@ -28,8 +27,8 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
       {informationSet.map((info: Information) => {
         if (info.section_id === props.section_id) {
           return (
-              <BasicInfoBlock id = {info.id} title = {info.title} body = {info.body}
-              section_id = {info.section_id} picture_id = {info.picture_id} user = {props.user} />
+              <BasicInfoBlock key = {info.id} id = {info.id} title = {info.title} body = {info.body}
+              section_id = {info.section_id} picture_url = {info.picture.pictureURL} user = {props.user} />
           );
         }
       })}
