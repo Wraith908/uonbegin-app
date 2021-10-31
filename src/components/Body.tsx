@@ -11,7 +11,7 @@ const Body = () => {
   const [user, setUser] = useState(new User());
 
   const logout = () => {
-    const loginStatus = axios.post('logout').then(response => response);
+    axios.post('logout').then(response => response);
     setUser(new User());
   }
 
