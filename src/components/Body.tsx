@@ -51,6 +51,9 @@ const Body = () => {
             <Route path = "/login">
               <Login user = {user} setUser = {setUser}/>
             </Route>
+            <Route path ="/error">
+
+            </Route>
             <Route path = "*">
               <NoMatch />
             </Route>
