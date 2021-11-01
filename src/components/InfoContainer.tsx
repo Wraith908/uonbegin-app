@@ -28,7 +28,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
         if (info.section_id === props.section_id) {
           return (
               <BasicInfoBlock key = {info.id} id = {info.id} title = {info.title} body = {info.body}
-              section_id = {info.section_id} picture_url = {info.picture.pictureURL} user = {props.user} />
+              section_id = {info.section_id} picture = {info.picture} user = {props.user} />
           );
         }
       })}
