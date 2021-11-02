@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../App.css';
-import BasicInfoBlockController from './subcomponents/BasicInfoBlock';
+import BasicInfoBlockController from './subcomponents/BasicInfoBlockController';
 import { Information } from '../models/information';
 import { User } from '../models/user';
 

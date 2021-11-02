@@ -21,10 +21,14 @@ const Login = (props: { user: User, setUser?: (user: User | ((prevVar: User) => 
         props.setUser(data);
       }
     } catch (error) {
-      setRedirect(true);
+      console.log(e);
     }
-
-    setRedirect(true);
+    if (props.user !== undefined && props.user.id !== 0) {
+      //this means the login was successful
+      setRedirect(true);
+    } else {
+      alert("Your login was unsuccessful, please try again");
+    }
   }
 
   if (redirect) {

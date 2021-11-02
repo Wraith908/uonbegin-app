@@ -27,7 +27,7 @@ const StaffDirectory = (props: {user: User}) => {
       setPage(page + 1);
     }
   }
-  
+
   const prev = () => {
     if (page > 0) {
       setPage(page - 1);
@@ -47,7 +47,7 @@ const StaffDirectory = (props: {user: User}) => {
       </div>
       <div>
         {/*This-is-gonna-be-the-section-that-shows-the-chosen-result*/}
-
+        
       </div>
     </div>
   );
