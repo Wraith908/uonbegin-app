@@ -17,7 +17,7 @@ const Login = (props: { user: User, setUser?: (user: User | ((prevVar: User) => 
         email,
         password
       });
-      if (props.setUser !== undefined && props.user !== undefined) {
+      if (props.setUser !== undefined) {
         props.setUser(data);
       }
     } catch (error) {

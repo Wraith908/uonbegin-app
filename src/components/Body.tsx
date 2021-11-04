@@ -35,6 +35,7 @@ const Body = () => {
         <Switch>
             <Route exact path = "/">
               <InfoContainer title = "University Service" section_id = {1} user = {user} />
+              <InfoContainer title = "University Locations" section_id = {5} user = {user} />
             </Route>
             <Route path = "/directory">
               <StaffDirectory user = {user} />
@@ -51,7 +52,7 @@ const Body = () => {
             <Route path = "/login">
               <Login user = {user} setUser = {setUser}/>
             </Route>
-            <Route path ="/error">
+            <Route path = "/error">
 
             </Route>
             <Route path = "*">
