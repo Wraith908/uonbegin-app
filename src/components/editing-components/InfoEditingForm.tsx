@@ -2,10 +2,11 @@ import React, {SyntheticEvent, useState} from 'react';
 import axios from 'axios';
 import { Picture } from '../../models/picture';
 import { User } from '../../models/user';
+import { Information } from '../../models/information';
 import ImageUploadBlock from './ImageUploadBlock';
 
-const InfoEditingForm = (props: {id: number, title: string, body: string, section_id: number, picture: Picture, user: User,
-  isEditing: boolean, setIsEditing?: (user: boolean | ((prevVar: boolean) => boolean)) => void, pictureArray: Picture[]}) => {
+const InfoEditingForm = (props: {id: number, title: string, body: string, section_id: number, picture: Picture, user: User, isEditing: boolean, pictureArray: Picture[],
+  setIsEditing?: (user: boolean | ((prevVar: boolean) => boolean)) => void}) => {
   const [count, setCount] = useState(0);
   const [imageStatus, setImageStatus] = useState(0);
   const [pictureID, setPictureID] = useState(0);
