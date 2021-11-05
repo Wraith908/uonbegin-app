@@ -87,6 +87,7 @@ this.UserToBot = this.UserToBot.bind(this)
       case 'Where can I find a map of the University for guiding myself from current location to my destination?':
       case 'University room':  
       case 'map':
+      case 'university map':
       case 'location':
       case 'guide':
       case 'where':
@@ -104,6 +105,7 @@ this.UserToBot = this.UserToBot.bind(this)
       case "major courses":
       case "elective courses":
       case "find major and elective courses":
+      case 'course':
       return "Your Program Handbook will list the available majors for your degree and each course associated with those majors. Please remember to check the course handbooks for the desired major to find out its delivery locations and further specific information to the course.";
       break;
       case 'How can I consult with my program advisor? how to contact them?':
@@ -114,15 +116,16 @@ this.UserToBot = this.UserToBot.bind(this)
       return "You can arrange a face-to-face or online consultation with your program advisor by emailing them on ProgramAdvisor@uon.edu.au.";
       break;
       case 'I lost my student card? How can I get new card?':
-      case "lost":
+      case "lost card":
       case "student card":
-      case "card":
+      case "university card":
       case "new card":
-      case "new":
+     
       return "Sorry to hear that. But you don’t need to worry. You can get new student card from student services centre by showing them e-card from your my uon app. ";
       break;
       case 'Where is the library?':
       case "library":
+      case 'books':
       return "There are 2 libraries in university, which one you are looking for? Hunter library and auchmuty library. Here is the location map navigate to nearest library.";
       break;
       case 'Is there any university doctor available for consulting my health?':
@@ -139,7 +142,7 @@ this.UserToBot = this.UserToBot.bind(this)
       return 'Yes there are plenty of scholarships available you can apply through university scholarship website.';
       break;
       case ' How do I apply for scholarships?':
-      case "apply":
+      case "apply scholarship":
       return 'Information on all available scholarships offered by the University of Newcastle for enabling, undergraduate and postgraduate course work students can be found on the Scholarships website.';
       break;
       case 'How do I apply for an Opal Concession card and Transport Entitlement Card?':
@@ -164,6 +167,8 @@ this.UserToBot = this.UserToBot.bind(this)
       case "how security":
       case "shuttle":
       case "pickup":
+      case 'bus':
+      case 'train':
       return 'To arrange a pick up, please call 4921 5888, then press 2. The Security shuttle is also available at Ourimbah from 5pm - 10pm. To arrange pick up, call 4921 5888, then press 3. ';
       break;
       case 'How do I find out what events are happening on campus?':
@@ -174,14 +179,19 @@ this.UserToBot = this.UserToBot.bind(this)
       break;
       case 'How do I apply to waive my student visa application fee due to COVID-19?':
       case "visa":
-      case "apply":
+      case "apply student visa":
       case "covid19":
       case "student visa":
       return 'The Department of Home Affairs (DHA) may consider waiving your visa application fee if you extend your student visa due to the impact of COVID-19. Please see criteria DHA have listed for consideration. If you meet the criteria, on application for your COE you can request the 1545 COVID-19 impacted student form. If you have already been issued your COE send an email to studentadvice@newcastle.edu.au.';
       break;
+      case 'how to find university staff contact details':
+      case 'university staff':
+      case 'staff directory':
+      return 'you can check university staff directory on website by typing staff directory'
+      break;
         
       default:
-        return "Sorry I couldn't understand. Please select from the given questions by typing x ";
+        return "Sorry I couldn't understand. Please select from the given questions by typing x or X";
         break;
     }
 

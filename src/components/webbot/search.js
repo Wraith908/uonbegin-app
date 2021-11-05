@@ -65,6 +65,9 @@ const languages = [
     name: 'map'
   },
   {
+    name: ' university map'
+  },
+  {
     name: 'location'
   },
   {
@@ -78,6 +81,9 @@ const languages = [
   },
   {
     name: 'timetable'
+  },
+  {
+    name: 'course'
   },
   {
     name: 'register'
@@ -107,24 +113,26 @@ const languages = [
     name: 'meeting'
   },
   {
-    name: 'lost'
+    name: 'lost card'
   },
   {
     name: 'contact'
   },
   {
-    name: 'card'
+    name: ' university card'
   },
   {
     name: 'new card'
   },
   {
-    name: 'new'
+    name: 'student card'
   },
   {
     name: 'library'
-  }
-  ,
+  },
+  {
+    name: 'books'
+  },
   {
     name: 'doctor'
   }
@@ -150,7 +158,7 @@ const languages = [
     name: 'hardship'
   },
   {
-    name: 'apply'
+    name: 'apply scholarship'
   },
   {
     name: 'opal card'
@@ -186,6 +194,12 @@ const languages = [
     name: 'pickup'
   },
   {
+    name: 'bus'
+  },
+  {
+    name: 'train'
+  },
+  {
     name: 'event'
   },
   {
@@ -198,7 +212,7 @@ const languages = [
     name: 'visa'
   },
   {
-    name: 'apply'
+    name: 'apply student visa'
   },
   {
     name: 'covid19'
@@ -206,6 +220,12 @@ const languages = [
   {
     name: 'student visa'
   }
+  {
+    name: 'staff directory'
+  },
+  {
+    name: 'university staff'
+  },
 
 ];
 
