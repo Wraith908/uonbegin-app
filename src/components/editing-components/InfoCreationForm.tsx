@@ -23,11 +23,11 @@ const InfoCreationForm = (props: {section_id: number, pictureArray: Picture[]}) 
   }
 
   const imageBlock = (imageStatus: number) => {
-    if (imageStatus === 1) {
+    if (imageStatus === 2) {
       return(
          <ImageUploadBlock pictureID = {pictureID} setPictureID = {setPictureID}/>
       );
-    } else if (imageStatus === 2) {
+    } else if (imageStatus === 3) {
       return(
         <select onChange = {e => setPictureID(parseInt(e.target.value))}>
           {props.pictureArray.map((picture: Picture) => {
@@ -52,10 +52,11 @@ const InfoCreationForm = (props: {section_id: number, pictureArray: Picture[]}) 
         placeholder = "Body of the information block" required /><br />
         <label>Would you like to use an image?</label><br />
         <select onChange = {e => setImageStatus(parseInt(e.target.value))}>
-          <option value = "0">No</option>
-          <option value = "1">Yes, I'd like to upload one</option>
-          <option value = "2">Yes, there's one on the database</option>
+          <option value = "1">No</option>
+          <option value = "2">Yes, I'd like to upload one</option>
+          <option value = "3">Yes, there's one on the database</option>
         </select>
+        {imageBlock(imageStatus)}
         <button type = "submit">Submit</button>
       </form>
     </div>
