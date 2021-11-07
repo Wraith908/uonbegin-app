@@ -1,4 +1,4 @@
-/** ===================================== EDITS by Aaron ============================================== **/
+/** ===================================== EDITS by Aaron - as of 7/11/21 ============================================== **/
 
 @charset "UTF-8";
 
@@ -10,18 +10,19 @@ html, body {
 header {                /* Added by Aaron - 
                         <<< NOTE -> 'header' and 'navbar' seem to be the same thing...? >>> */
   background: lightskyblue; /* overriden by the 'navbar' background element - delete later... */
-  /*text-size-adjust: 5em; -- does not work... */
   padding: 15px;
   padding-top: 3em;
 }
 
-/*body {               --> Added by Aaron --> work on this later... 
-  background: slategray;
-}*/
+body {             /*  --> Added by Aaron --> work on this later... */
+  margin: auto;    /* --> Fix for the weird white border issue we had earlier, due to the user agent stylesheet... */
+}
 
 .navbar {               /* Added by Aaron - try messing around with this... */
   background: slategray;
   text-align: right;
+  /*position: fixed;    -> kinda want to make this 'static' so it doesn't disappear when scrolling up... not a big priority
+  width: 100%;*/
 }
 
 
@@ -43,12 +44,13 @@ header {                /* Added by Aaron -
 /* - University Services - */
 .nav-link1 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
   color: white;
+  border-radius: 5px;
   background-color: blue;
   padding: 5px;
   padding-right: 0.5em;
   padding-left: 0.5em;
   margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
-  transform: skew(-20deg); /* does not work... --- not a high priority at this point --- */
+  /*transform: skew(-20deg);   does not work... --- not a high priority at this point --- */
   text-decoration: none;
   font-weight: bold;
 }
@@ -56,6 +58,7 @@ header {                /* Added by Aaron -
 /* - Staff Directory - */
 .nav-link2 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
   color: white;
+  border-radius: 5px;
   background-color: blue;
   padding: 5px;
   padding-right: 0.5em;
@@ -68,6 +71,7 @@ header {                /* Added by Aaron -
 /* - Week 1 Survival Pack - */
 .nav-link3 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
   color: white;
+  border-radius: 5px;
   background-color: blue;
   padding: 5px;
   padding-right: 0.5em;
@@ -80,6 +84,7 @@ header {                /* Added by Aaron -
 /* - What to expect at University - */
 .nav-link4 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
   color: white;
+  border-radius: 5px;
   background-color: blue;
   padding: 5px;
   padding-right: 0.5em;
@@ -92,6 +97,7 @@ header {                /* Added by Aaron -
 /* - FAQs and Testimonials - */
 .nav-link5 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
   color: white;
+  border-radius: 5px;
   background-color: blue;
   padding: 5px;
   padding-right: 0.5em;
@@ -106,6 +112,7 @@ header {                /* Added by Aaron -
 
 .login-link {           /* Added by Aaron --> Changes aspects of the 'Login' navbar link - separate to the other links */
   color: white;
+  border-radius: 5px;
   background-color: blue;
   padding: 5px;
   padding-right: 0.5em;
@@ -120,11 +127,18 @@ header {                /* Added by Aaron -
 
 #uniServices h1 {       /* Added by Aaron - alters aspects of the 'University Services' banner/title 
                           NOTE: 'div id' was added to the div in 'UniversityServices.tsx' */
-  background-color: lightskyblue;
+  background-color: #2ba3ff;
+  color: white;
   padding: 10px;
   margin-top: auto;
   font-size: 1.5em;
 }
+
+/*#uniServices hr{    -> mess with this later
+  height: 2em;
+  border-color: red;
+  border-width: 2em;
+}*/
 
 /*************************************/
 /*       Staff Directory page        */
@@ -132,13 +146,21 @@ header {                /* Added by Aaron -
 
 
 #staffDirectory h1 {    /* leave this for now... */
-  background-color: lightskyblue;
+  background-color: #2ba3ff;
+  color: white;
   text-align: left;
   margin-top: auto;
   padding: 10px;
+  padding-left: 1em;
+  padding-right: 4em;
+  padding-bottom: 10em;
   font-size: 1.5em;
   width: fit-content;   /* mayyybe use something else later... */
 }
+
+/*#staffDirectory hr{
+  padding: 0%;
+}*/
 
 
 /*************************************/
@@ -147,11 +169,24 @@ header {                /* Added by Aaron -
 
 
 #week1SurvivalPack h1 {
-  background-color: lightskyblue;
+  background-color: #2ba3ff;
+  color: white;
   padding: 10px;
   margin-top: auto;
   font-size: 1.5em;
 }
+
+#w1spContent{ /* !!! THIS will be deleted later... !!! */
+  background-color: lightskyblue;
+  width:fit-content;
+  padding: 10px;
+  margin: 0;
+}
+
+/*#week1SurvivalPack h2 {
+  background-color: lightskyblue;
+  width: fit-content;
+}*/
 
 
 /***************************************/
@@ -160,7 +195,8 @@ header {                /* Added by Aaron -
 
 
 #uniExpectations h1 {
-  background-color: lightskyblue;
+  background-color: #2ba3ff;
+  color: white;
   padding: 10px;
   margin-top: auto;
   font-size: 1.5em;
@@ -173,7 +209,8 @@ header {                /* Added by Aaron -
 
 
 #FAQsAndTestimonials h1 {
-  background-color: lightskyblue;
+  background-color: #2ba3ff;
+  color: white;
   padding: 10px;
   margin-top: auto;
   font-size: 1.5em;
@@ -183,11 +220,19 @@ header {                /* Added by Aaron -
 
 footer {               /* Added by Aaron */
   background: slategray;
+  color: white;
   padding: 10px 10px 10px 10px;
-  position: fixed;     /* works buut try something else... */
+  position:fixed;     /* works buut try something else... */
   bottom: 0;
-  width: 100%;        /* ??? Get rid of this... */
-  /*width: 100%;          doesn't really work... hmm */
+  width: 100%;      
+}
+
+footer h3{
+  font-weight: normal;
+}
+
+footer p{
+  text-align: left;
 }
 
 /** ========================================= END OF CHANGES ============================================ **/
