@@ -17,18 +17,16 @@ const Login = (props: { user: User, setUser?: (user: User | ((prevVar: User) => 
         email,
         password
       });
-      if (props.setUser !== undefined && props.user !== undefined) {
+      if (props.setUser !== undefined) {
         props.setUser(data);
+        setRedirect(true);
       }
     } catch (error) {
+      alert("Your login was unsuccessful, please try again");
       console.log(e);
     }
-    if (props.user !== undefined && props.user.id !== 0) {
-      //this means the login was successful
-      setRedirect(true);
-    } else {
-      alert("Your login was unsuccessful, please try again");
-    }
+
+
   }
 
   if (redirect) {

@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
+import { Staff } from '../../models/staff';
 
-class StaffSearchBrief extends Component {
+const StaffSearchBrief = (props: {staff: Staff, setChosenStaff: (staff: Staff | ((prevVar: Staff) => Staff)) => void}) => {
   /*This is the short version that shows up during a search, multiple of these
   tiles will have to fit on the screen at the same time*/
-  render() {
-    return(
+  return(
+    <a onClick = {() => props.setChosenStaff(props.staff)}>
       <div>
-        <p>Hooroo</p>
+        <h3>{props.staff.name}</h3><br />
+        <p>Contact email: {props.staff.contact_email}</p>
+        <p>Office Room: {props.staff.office_room}</p>
       </div>
-    );
-  }
+    </a>
+  );
 }
 
 export default StaffSearchBrief;
