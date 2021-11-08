@@ -7,12 +7,10 @@ import InfoCreationForm from './editing-components/InfoCreationForm';
 /*models*/
 import { Information } from '../models/information';
 import { User } from '../models/user';
-import { Picture } from '../models/picture';
 
 const InfoContainer = (props: {title: string, section_id: number, user: User}) => {
   /*DB information*/
   const [information, setInformation] = useState([]);
-  const [existingPictures, setExistingPictures] = useState([]);
   /*State variables*/
   const [editID, setEditID] = useState(0);
   const [newInfo, setNewInfo] = useState(false);
@@ -23,10 +21,10 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
   const [eId, setEID] = useState(0);
   const [eTitle, setETitle] = useState('');
   const [eBody, setEBody] = useState('');
-  const [ePictureID, setEPictureID] = useState(0);
+  const [ePictureURL, setEPictureURL] = useState('');
   const [cTitle, setCTitle] = useState('');
   const [cBody, setCBody] = useState('');
-  const [cPictureID, setCPictureID] = useState(0);
+  const [cPictureURL, setCPictureURL] = useState('');
 
   useEffect(() => {
     (
@@ -35,18 +33,6 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
           //All of the information
           const {data} = await axios.get('info');
           setInformation(data.data);
-
-          //Now I need to get pictures
-          const pictures = await axios.get('picture').then(response => response);
-          setExistingPictures(pictures);
-          console.log(pictures);
-        } catch (error) {
-          console.log(error);
-        }
-        try {
-          //All of the information
-          const {data} = await axios.get('picture');
-          setExistingPictures(data);
         } catch (error) {
           console.log(error);
         }
@@ -74,7 +60,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
         title: eTitle,
         body: eBody,
         section_id: props.section_id,
-        picture_id: ePictureID
+        image_url: ePictureURL
       });
 
       setEditID(0);
@@ -90,10 +76,11 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
         <button onClick = {swapNewInfo}>Close Form</button> :
         props.user.id !== 0 && <button onClick = {swapNewInfo}>Create New Form</button>
       }
-      {newInfo && props.user.id !== 0 && <InfoCreationForm section_id = {props.section_id} pictureArray = {existingPictures}/>}
+      {newInfo && props.user.id !== 0 && <InfoCreationForm newInfo = {newInfo} setNewInfo = {setNewInfo} section_id = {props.section_id}/>}
       {information.map((info: Information) => {
         if (info.section_id === props.section_id) {
           if (editID === info.id) {
+            setEPictureURL(info.image_url);
             return(
               <div>
                 <form onSubmit = {submitEdit}>
@@ -105,23 +92,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
                   onChange = {e => setEBody(e.target.value)} defaultValue = {info.body} required /><br />
                   <input type = "hidden" name = "id" value = {info.id} />
                   <label>Would you like to use an image?</label><br />
-                  <select onChange = {e => setOptionSelected(parseInt(e.target.value))}>
-                    <option value = "1">No</option>
-                    <option value = "2">Yes, I'd like to upload one</option>
-                    <option value = "3">Yes, there's one on the database</option>
-                  </select>
-                  {optionSelected === 1 &&
-                    <p>No Picture Selected</p>
-                  } {optionSelected === 2 &&
-                    <ImageUploadBlock pictureID = {pictureID} setPictureID = {setPictureID} />
-                  } {optionSelected === 3 &&
-                    <select onChange = {e => setEPictureID(parseInt(e.target.value))}>
-                    {existingPictures.map((picture: Picture) => {
-                      return(
-                        <option key = {picture.picture_id} value = {picture.picture_id}>{picture.picture_name}</option>
-                      );
-                    })}
-                    </select>}
+                  <ImageUploadBlock pictureURL = {ePictureURL} setPictureURL = {setEPictureURL} />
                   <button type = "submit">Submit</button>
                 </form>
               </div>
@@ -133,7 +104,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
                 {props.user.id !== 0 && <button onClick = {() => setEditID(info.id)}>Edit</button>}
                 {props.user.id !== 0 && <button onClick = {() => del(info.id)}>Delete</button>}
                 <p>{info.body}</p>
-                {info.picture !== undefined && info.picture !== null && <img src = {info.picture.pictureURL} />}
+                {info.image_url !== undefined && info.image_url !== null && <img src = {info.image_url} />}
               </div>
             );
           }

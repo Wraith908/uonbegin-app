@@ -3,14 +3,12 @@ import axios from 'axios';
 import StaffSearchBrief from './subcomponents/StaffSearchBrief';
 import StaffSearchResults from './subcomponents/StaffSearchResult';
 import ImageUploadBlock from './editing-components/ImageUploadBlock';
-import { Picture } from '../models/picture';
 import { Staff } from '../models/staff';
 import { User } from '../models/user';
 
 const StaffDirectory = (props: {user: User}) => {
   /*DB information*/
   const [staffList,setStaffList] = useState([]);
-  const [existingPictures, setExistingPictures] = useState([]);
   /*the focus of the page*/
   const [chosenStaff, setChosenStaff] = useState(new Staff());
   /*State booleans*/
@@ -31,7 +29,7 @@ const StaffDirectory = (props: {user: User}) => {
   const [cOfficeRoom, setCOfficeRoom] = useState('');
   const [cOfficeBuilding, setCOfficeBuilding] = useState('');
   const [cOfficeLocation, setCOfficeLocation] = useState('');
-  const [cPictureID, setCPictureID] = useState('');
+  const [cPictureURL, setCPictureURL] = useState('');
   const [eName, setEName] = useState('');
   const [eAbout, setEAbout] = useState('');
   const [eContactEmail, setEContactEmail] = useState('');
@@ -42,7 +40,7 @@ const StaffDirectory = (props: {user: User}) => {
   const [eOfficeRoom, setEOfficeRoom] = useState('');
   const [ecOfficeBuilding, setEOfficeBuilding] = useState('');
   const [eOfficeLocation, setEOfficeLocation] = useState('');
-  const [ePictureID, setEPictureID] = useState(0);
+  const [ePictureURL, setEPictureURL] = useState('');
   useEffect(() => {
     (
       async () => {
@@ -50,9 +48,6 @@ const StaffDirectory = (props: {user: User}) => {
           const {data} = await axios.get('staff');
           setStaffList(data.data);
           setLastPage(data.meta.last_page);
-
-          const pictures = await axios.get('picture').then(response => response);
-          setExistingPictures(pictures);
         } catch (error) {
           console.log(error);
         }
@@ -115,23 +110,7 @@ const StaffDirectory = (props: {user: User}) => {
             <label>Office Location</label>
             <input type = "text" onChange = {e => setEOfficeLocation(e.target.value)} defaultValue = {chosenStaff.office_location} required />
             <label>Image</label>
-            <select onChange = {e => setOptionSelected(parseInt(e.target.value))}>
-              <option value = "1">No</option>
-              <option value = "2">Yes, I'd like to upload one</option>
-              <option value = "3">Yes, there's one on the database</option>
-            </select>
-            {optionSelected === 1 &&
-              <p>No Picture Selected</p>
-            } {optionSelected === 2 &&
-              <ImageUploadBlock pictureID = {ePictureID} setPictureID = {setEPictureID} />
-            } {optionSelected === 3 &&
-              <select onChange = {e => setEPictureID(parseInt(e.target.value))}>
-              {existingPictures.map((picture: Picture) => {
-                return(
-                  <option key = {picture.picture_id} value = {picture.picture_id}>{picture.picture_name}</option>
-                );
-              })}
-              </select>}
+            <ImageUploadBlock pictureURL = {ePictureURL} setPictureURL = {setEPictureURL} />
             </form>
           </div> :
            <div>{props.user.id !==0 && <button onClick = {() => setIsEditing(!isEditing)}>Edit</button>}
@@ -153,7 +132,7 @@ const StaffDirectory = (props: {user: User}) => {
                <li>Office Location {chosenStaff.office_location}</li>
              </ul>
              </p>
-             <img src = {chosenStaff.picture.pictureURL} />
+             <img src = {chosenStaff.image_url} />
           </div>}
       </div>
     </div>

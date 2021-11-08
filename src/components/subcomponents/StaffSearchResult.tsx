@@ -26,7 +26,7 @@ const StaffSearchResults = (props: {staff: Staff}) => {
           <li>Office Location {props.staff.office_location}</li>
         </ul>
         </p>
-        <img src = {props.staff.picture.pictureURL} />
+        <img src = {props.staff.image_url} />
       </div>
   );
 }
