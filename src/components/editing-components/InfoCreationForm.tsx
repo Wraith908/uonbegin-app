@@ -1,44 +1,27 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react';
 import axios from 'axios';
 import ImageUploadBlock from './ImageUploadBlock';
-import { Picture } from '../../models/picture';
 
-const InfoCreationForm = (props: {section_id: number, pictureArray: Picture[]}) => {
+const InfoCreationForm = (props: {newInfo: boolean, setNewInfo: (newInfo: boolean | ((prevVar: boolean) => boolean)) => void, section_id: number}) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-  const [pictureID, setPictureID] = useState(0);
+  const [pictureURL, setPictureURL] = useState('');
   const [imageStatus, setImageStatus] = useState(0);
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
     try {
+      console.log(pictureURL);
       const {data} = await axios.post('info', {
-          title,
-          body,
-          section_id: props.section_id
+          title: title,
+          body: body,
+          section_id: props.section_id,
+          image_url:  pictureURL
       })
+      props.setNewInfo(false);
     } catch (error) {
       console.log(error);
     }
-  }
-
-  const imageBlock = (imageStatus: number) => {
-    if (imageStatus === 1) {
-      return(
-         <ImageUploadBlock pictureID = {pictureID} setPictureID = {setPictureID}/>
-      );
-    } else if (imageStatus === 2) {
-      return(
-        <select onChange = {e => setPictureID(parseInt(e.target.value))}>
-          {props.pictureArray.map((picture: Picture) => {
-            return (
-              <option key = {picture.picture_id} value = {picture.picture_id}>{picture.picture_name}</option>
-            )
-          })}
-        </select>
-      );
-    }
-    return(<p>Affirmative</p>);
   }
 
   return (
@@ -50,12 +33,14 @@ const InfoCreationForm = (props: {section_id: number, pictureArray: Picture[]}) 
         <label>Body</label><br />
         <input type = "text" onChange = {e => setBody(e.target.value)}
         placeholder = "Body of the information block" required /><br />
-        <label>Would you like to use an image?</label><br />
-        <select onChange = {e => setImageStatus(parseInt(e.target.value))}>
-          <option value = "0">No</option>
-          <option value = "1">Yes, I'd like to upload one</option>
-          <option value = "2">Yes, there's one on the database</option>
-        </select>
+        <label>Image</label><br />
+        {pictureURL === ''?
+          <p>No picture</p>:
+          <div>
+            <p>{pictureURL}</p><button onClick = {() => setPictureURL('')}>Remove picture</button>
+          </div>
+        }
+        <ImageUploadBlock pictureURL = {pictureURL} setPictureURL = {setPictureURL}/>
         <button type = "submit">Submit</button>
       </form>
     </div>

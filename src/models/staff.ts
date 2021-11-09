@@ -1,5 +1,3 @@
-import { Picture } from './picture';
-
 export class Staff {
   constructor(
     public id = 0,
@@ -13,6 +11,6 @@ export class Staff {
     public office_room = '',
     public office_building = '',
     public office_location = '',
-    public picture = new Picture()) {}
+    public image_url = '') {}
 
 }
