@@ -62,10 +62,18 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
         section_id: props.section_id,
         image_url: ePictureURL
       });
-
       setEditID(0);
     } catch (error) {
       console.log(error);
+    }
+    if (editID === 0) {
+      try {
+        //All of the information
+        const {data} = await axios.get('info');
+        setInformation(data.data);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 

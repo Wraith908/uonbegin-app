@@ -11,7 +11,6 @@ const InfoCreationForm = (props: {newInfo: boolean, setNewInfo: (newInfo: boolea
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
     try {
-      console.log(pictureURL);
       const {data} = await axios.post('info', {
           title: title,
           body: body,
