@@ -41,6 +41,8 @@ const StaffDirectory = (props: {user: User}) => {
   const [eOfficeBuilding, setEOfficeBuilding] = useState('');
   const [eOfficeLocation, setEOfficeLocation] = useState('');
   const [ePictureURL, setEPictureURL] = useState('');
+  /*searchbar*/
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     (
@@ -206,11 +208,13 @@ const StaffDirectory = (props: {user: User}) => {
 
         /*This-is-gonna-be-the-results-list*/}
         <h1>Staff Directory</h1>
-        <input type = "text" placeholder = "Enter a name here" className = "searchbar"/>
+        <input type = "text" placeholder = "Enter a name here" onChange = {(e) => setSearch(e.target.value)} className = "searchbar"/>
         {staffList.map((staff: Staff) => {
-          return(
-            <StaffSearchBrief key = {staff.id} staff = {staff} setChosenStaff = {setChosenStaff}/>
-          );
+          if (staff.name.includes(search)) {
+            return(
+              <StaffSearchBrief key = {staff.id} staff = {staff} setChosenStaff = {setChosenStaff}/>
+            );
+          }
         })}
         <button onClick = {prev}>Prev</button>
         <button onClick = {next}>Next</button>
