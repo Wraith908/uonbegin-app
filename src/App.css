@@ -1,5 +1,6 @@
 /** ===================================== EDITS by Aaron - as of 10/11/21 ============================================== **/
 
+
 @charset "UTF-8";
 
 html, body {
@@ -7,7 +8,7 @@ html, body {
 }
 
 
-header {                /* Added by Aaron - 
+header {                /* Added by Aaron -
                         <<< NOTE -> 'header' and 'navbar' seem to be the same thing...? >>> */
   background: lightskyblue; /* overriden by the 'navbar' background element - delete later... */
   padding: 15px;
@@ -31,12 +32,12 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /**********************************/
 
 /*ORIGINAL classname for 'navbar' elements
-.nav-link {             /* Added by Aaron --> Changes aspects of the 'navbar' links 
+.nav-link {             /* Added by Aaron --> Changes aspects of the 'navbar' links
   color: white;
   font-size: 1.1em;
   /*background-color: blue;
   padding: 5px;
-  padding-right: 1.5em; 
+  padding-right: 1.5em;
 }*/
 
 
@@ -152,7 +153,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /*     University Services page      */
 /*************************************/
 
-#uniServices h1 {       /* Added by Aaron - alters aspects of the 'University Services' banner/title 
+#uniServices h1 {       /* Added by Aaron - alters aspects of the 'University Services' banner/title
                           NOTE: 'div id' was added to the div in 'UniversityServices.tsx' */
   background-color: #2ba3ff;
   color: white;
@@ -160,7 +161,6 @@ body {             /*  --> Added by Aaron --> work on this later... */
   margin-top: auto;
   font-size: 1.5em;
 }
-
 
 /*#infoForm input{      doesn't seem to work - from InfoContainer
   margin: auto;
@@ -207,6 +207,10 @@ body {             /*  --> Added by Aaron --> work on this later... */
   font-size: 1.5em;
   width: fit-content;   /* mayyybe use something else later... */
 }
+
+/*#staffDirectory hr{
+  padding: 0%;
+}*/
 
 
 
@@ -269,6 +273,12 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /*************************************/
 
 
+spacer {
+  color: red;
+  padding:5em;
+}
+
+
 footer {               /* Added by Aaron */
   background: slategray;
   color: white;
@@ -277,6 +287,7 @@ footer {               /* Added by Aaron */
                           but creates a massive gap at the bottom until content is placed on the page */
   bottom: 0;
   width: 100%;      
+
 }
 
 footer h3{

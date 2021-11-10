@@ -62,10 +62,18 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
         section_id: props.section_id,
         image_url: ePictureURL
       });
-
       setEditID(0);
     } catch (error) {
       console.log(error);
+    }
+    if (editID === 0) {
+      try {
+        //All of the information
+        const {data} = await axios.get('info');
+        setInformation(data.data);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
@@ -83,7 +91,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
             setEPictureURL(info.image_url);
             return(
               <div>
-                <form onSubmit = {submitEdit}>
+                <form onSubmit = {submitEdit} key = {info.id}>
                   <label>Head</label><button onClick = {() => setEditID(0)}>Edit</button><br />
                   <input type = "text" name = "title" placeholder = "Header"
                   onChange = {e => setETitle(e.target.value)} defaultValue = {info.title} required /><br />
