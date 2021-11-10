@@ -90,15 +90,13 @@ const StaffDirectory = (props: {user: User}) => {
     } catch (error) {
       console.log(error);
     }
-    if (!newStaff) {
-      try {
-        //All of the information
-        const {data} = await axios.get('staff');
-        setStaffList(data.data);
-        setLastPage(data.meta.last_page);
-      } catch (error) {
-        console.log(error);
-      }
+    try {
+      //All of the information
+      const {data} = await axios.get('staff');
+      setStaffList(data.data);
+      setLastPage(data.meta.last_page);
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -123,15 +121,13 @@ const StaffDirectory = (props: {user: User}) => {
     } catch (error) {
       console.log(error);
     }
-    if (!isEditing) {
-      try {
-        //All of the information
-        const {data} = await axios.get('staff');
-        setStaffList(data.data);
-        setLastPage(data.meta.last_page);
-      } catch (error) {
-        console.log(error);
-      }
+    try {
+      //All of the information
+      const {data} = await axios.get('staff');
+      setStaffList(data.data);
+      setLastPage(data.meta.last_page);
+    } catch (error) {
+      console.log(error);
     }
   }
 

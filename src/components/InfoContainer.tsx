@@ -3,7 +3,6 @@ import axios from 'axios';
 import '../App.css';
 /*component imports*/
 import ImageUploadBlock from './editing-components/ImageUploadBlock';
-import InfoCreationForm from './editing-components/InfoCreationForm';
 /*models*/
 import { Information } from '../models/information';
 import { User } from '../models/user';
@@ -12,7 +11,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
   /*DB information*/
   const [information, setInformation] = useState([]);
   /*State variables*/
-  const [editID, setEditID] = useState(0);
+  const [editInfo, setEditInfo] = useState(new Information());
   const [newInfo, setNewInfo] = useState(false);
   const [optionSelected, setOptionSelected] = useState(0);
   /*Image Upload*/
@@ -53,6 +52,28 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
     }
   }
 
+  const submitCreate = async (e: SyntheticEvent) => {
+    e.preventDefault();
+    try {
+      const {data} = await axios.post('info', {
+          title: cTitle,
+          body: cBody,
+          section_id: props.section_id,
+          image_url:  cPictureURL
+      })
+      setNewInfo(false);
+    } catch (error) {
+      console.log(error);
+    }
+    try {
+      //All of the information
+      const {data} = await axios.get('info');
+      setInformation(data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const submitEdit = async (e: SyntheticEvent) => {
     e.preventDefault();
     try {
@@ -62,18 +83,16 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
         section_id: props.section_id,
         image_url: ePictureURL
       });
-      setEditID(0);
+      setEditInfo(new Information());
     } catch (error) {
       console.log(error);
     }
-    if (editID === 0) {
-      try {
-        //All of the information
-        const {data} = await axios.get('info');
-        setInformation(data.data);
-      } catch (error) {
-        console.log(error);
-      }
+    try {
+      //All of the information
+      const {data} = await axios.get('info');
+      setInformation(data.data);
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -84,38 +103,55 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
         <button onClick = {swapNewInfo}>Close Form</button> :
         props.user.id !== 0 && <button onClick = {swapNewInfo}>Create New Form</button>
       }
-      {newInfo && props.user.id !== 0 && <InfoCreationForm newInfo = {newInfo} setNewInfo = {setNewInfo} section_id = {props.section_id}/>}
+      {newInfo && props.user.id !== 0 &&
+        <div>
+          <form onSubmit = {submitCreate}>
+            <label>Head</label><br />
+            <input type = "text" onChange = {e => setCTitle(e.target.value)}
+            placeholder = "Header" required /><br />
+            <label>Body</label><br />
+            <input type = "text" onChange = {e => setCBody(e.target.value)}
+            placeholder = "Body of the information block" required /><br />
+            <label>Image</label><br />
+            {cPictureURL === ''?
+              <p>No picture</p>:
+              <div>
+                <p>{cPictureURL}</p><button onClick = {() => setCPictureURL('')}>Remove picture</button>
+              </div>
+            }
+            <ImageUploadBlock pictureURL = {cPictureURL} setPictureURL = {setCPictureURL}/>
+            <button type = "submit">Submit</button>
+          </form>
+        </div>
+       }
       {information.map((info: Information) => {
         if (info.section_id === props.section_id) {
-          if (editID === info.id) {
-            setEPictureURL(info.image_url);
+          if (info.id === editInfo.id) {
             return(
               <div>
-                <form onSubmit = {submitEdit} key = {info.id}>
-                  <label>Head</label><button onClick = {() => setEditID(0)}>Edit</button><br />
+                <form onSubmit = {submitEdit}>
+                  <label>Head</label><button onClick = {() => setEditInfo(new Information())}>Close Edit</button><br />
                   <input type = "text" name = "title" placeholder = "Header"
                   onChange = {e => setETitle(e.target.value)} defaultValue = {info.title} required /><br />
                   <label>Body</label><br />
                   <input type = "text" name = "body" placeholder = "Body of the information block"
                   onChange = {e => setEBody(e.target.value)} defaultValue = {info.body} required /><br />
-                  <input type = "hidden" name = "id" value = {info.id} />
-                  <label>Would you like to use an image?</label><br />
+                  <label>{info.image_url !== ""?<p>Would you like to attach an image?</p>:<p>info.image_url</p>}</label><br />
                   <ImageUploadBlock pictureURL = {ePictureURL} setPictureURL = {setEPictureURL} />
                   <button type = "submit">Submit</button>
                 </form>
               </div>
             );
-          } else {
-            return (
-              <div>
-                <h2>{info.title}</h2>
-                {props.user.id !== 0 && <button onClick = {() => setEditID(info.id)}>Edit</button>}
-                {props.user.id !== 0 && <button onClick = {() => del(info.id)}>Delete</button>}
-                <p>{info.body}</p>
-                {info.image_url !== undefined && info.image_url !== null && <img src = {info.image_url} />}
-              </div>
-            );
           }
+          return(
+            <div>
+              <h2>{info.title}</h2>
+              {props.user.id !== 0 && <button onClick = {() => setEditInfo(info)}>Edit</button>}
+              <p>{info.body}</p>
+              {props.user.id !== 0 && <button onClick = {() => del(info.id)}>Delete</button>}
+              {info.image_url !== undefined && info.image_url !== null && <img src = {info.image_url} />}
+            </div>
+          );
         }
       })}
     </div>
