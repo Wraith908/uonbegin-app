@@ -1,4 +1,4 @@
-/** ===================================== EDITS by Aaron - as of 7/11/21 ============================================== **/
+/** ===================================== EDITS by Aaron - as of 10/11/21 ============================================== **/
 
 @charset "UTF-8";
 
@@ -222,7 +222,7 @@ footer {               /* Added by Aaron */
   background: slategray;
   color: white;
   padding: 10px 10px 10px 10px;
-  position:fixed;     /* works buut try something else... */
+  position: relative;     /* works, but try and put some empty divs in above to space it out a bit */
   bottom: 0;
   width: 100%;      
 }

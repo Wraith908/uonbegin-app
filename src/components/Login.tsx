@@ -33,7 +33,7 @@ const Login = (props: { user: User, setUser?: (user: User | ((prevVar: User) => 
     return <Redirect to ={'/'}/>
   }
   return (
-    <div>
+    <div id="loginForm">
       <form onSubmit = {submit}>
         <label>Email</label><br/>
         <input type = "email" placeholder = "example@example.com" required
