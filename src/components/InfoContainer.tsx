@@ -144,12 +144,12 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
             );
           }
           return(
-            <div>
+            <div id="infoBlock">
               <h2>{info.title}</h2>
               {props.user.id !== 0 && <button onClick = {() => setEditInfo(info)}>Edit</button>}
               <p>{info.body}</p>
-              {props.user.id !== 0 && <button onClick = {() => del(info.id)}>Delete</button>}
               {info.image_url !== undefined && info.image_url !== null && <img src = {info.image_url} />}
+              {props.user.id !== 0 && <button onClick = {() => del(info.id)}>Delete</button>}
             </div>
           );
         }

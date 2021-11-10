@@ -1,4 +1,5 @@
-/** ===================================== EDITS by Aaron - as of 7/11/21 ============================================== **/
+/** ===================================== EDITS by Aaron - as of 10/11/21 ============================================== **/
+
 
 @charset "UTF-8";
 
@@ -11,7 +12,7 @@ header {                /* Added by Aaron -
                         <<< NOTE -> 'header' and 'navbar' seem to be the same thing...? >>> */
   background: lightskyblue; /* overriden by the 'navbar' background element - delete later... */
   padding: 15px;
-  padding-top: 3em;
+  padding-top: 4em;
 }
 
 body {             /*  --> Added by Aaron --> work on this later... */
@@ -121,15 +122,31 @@ body {             /*  --> Added by Aaron --> work on this later... */
   font-weight: bold;
 }
 
-.logout-link {           /* Added by Aaron --> Changes aspects of the 'Login' navbar link - separate to the other links */
-  color: white;
-  border-radius: 5px;
-  background-color: blue;
-  padding: 5px;
-  padding-right: 0.5em;
-  padding-left: 0.5em;
-  text-decoration: none;
-  font-weight: bold;
+/*************************************/
+/*            Login Form             */
+/*************************************/
+
+#loginForm {            /* NEW - general div settings */
+  padding-top: 2em;
+  padding-bottom: 5em;
+}
+
+#loginFormBackground {  /* NEW - small stylish background for the login form */
+  background-color: #2ba3ff;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  border-radius: 10px;
+  width: 40%;
+  margin:auto;
+  /*justify-content: center;
+  align-content: center;*/
+}
+
+#loginForm input{       /* NEW - textbox settings */
+  box-sizing: border-box;
+  margin: auto;
+  width: 60%;
+  padding: 12px 20px;
 }
 
 /*************************************/
@@ -143,6 +160,28 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding: 10px;
   margin-top: auto;
   font-size: 1.5em;
+}
+
+/*#infoForm input{      doesn't seem to work - from InfoContainer
+  margin: auto;
+  width: 30%;
+  padding: 12px 20px;
+}*/
+
+#infoCreationForm input {     /* works - from InfoCreationForm */
+  margin: auto;
+  width: 30%;
+  padding: 12px 20px;
+}
+
+#infoBlock {                  /* works - alters the blocks of info when they are created */
+  background-color: #2ba3ff;
+  color: white;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+  border-radius: 10px;
+  width: 40%;
+  margin:auto;
 }
 
 /*#uniServices hr{    -> mess with this later
@@ -172,6 +211,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /*#staffDirectory hr{
   padding: 0%;
 }*/
+
 
 
 /*************************************/
@@ -228,6 +268,10 @@ body {             /*  --> Added by Aaron --> work on this later... */
 }
 
 
+/*************************************/
+/*          Footer Settings          */
+/*************************************/
+
 
 spacer {
   color: red;
@@ -239,9 +283,11 @@ footer {               /* Added by Aaron */
   background: slategray;
   color: white;
   padding: 10px 10px 10px 10px;
-  position: relative;     /* works buut try something else... */
+  position: relative;     /* making it FIXED sets it to the bottom but it never disappears and may block content, making it RELATIVE detatches it from the bottom 
+                          but creates a massive gap at the bottom until content is placed on the page */
   bottom: 0;
-  width: 100%;
+  width: 100%;      
+
 }
 
 footer h3{
