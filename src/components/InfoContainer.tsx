@@ -104,7 +104,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
         props.user.id !== 0 && <button onClick = {swapNewInfo}>Create New Form</button>
       }
       {newInfo && props.user.id !== 0 &&
-        <div>
+        <div id = "infoCreationForm">
           <form onSubmit = {submitCreate}>
             <label>Head</label><br />
             <input type = "text" onChange = {e => setCTitle(e.target.value)}
@@ -128,7 +128,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
         if (info.section_id === props.section_id) {
           if (info.id === editInfo.id) {
             return(
-              <div>
+              <div id = "infoCreationForm">
                 <form onSubmit = {submitEdit}>
                   <label>Head</label><button onClick = {() => setEditInfo(new Information())}>Close Edit</button><br />
                   <input type = "text" name = "title" placeholder = "Header"
@@ -136,7 +136,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
                   <label>Body</label><br />
                   <input type = "text" name = "body" placeholder = "Body of the information block"
                   onChange = {e => setEBody(e.target.value)} defaultValue = {info.body} required /><br />
-                  <label>{info.image_url !== ""?<p>Would you like to attach an image?</p>:<p>info.image_url</p>}</label><br />
+                  <label>{info.image_url === ""?<p>Would you like to attach an image?</p>:<p>{info.image_url}</p>}</label><br />
                   <ImageUploadBlock pictureURL = {ePictureURL} setPictureURL = {setEPictureURL} />
                   <button type = "submit">Submit</button>
                 </form>
