@@ -76,21 +76,21 @@ const StaffDirectory = (props: {user: User}) => {
       const {data} = await axios.post('staff',{
         name: cName,
         about: cAbout,
-        contactEmail: cContactEmail,
-        contactPhone: cContactPhone,
-        contactModbile: cContactModbile,
-        contactFax: cContactFax,
-        focusArea: cFocusArea,
-        officeRoom: cOfficeRoom,
-        officeBuilding: cOfficeBuilding,
-        officeLocation: cOfficeLocation,
+        contact_email: cContactEmail,
+        contact_phone: cContactPhone,
+        contact_mobile: cContactModbile,
+        contact_fax: cContactFax,
+        focus_area: cFocusArea,
+        office_room: cOfficeRoom,
+        office_building: cOfficeBuilding,
+        office_location: cOfficeLocation,
         image_url: cPictureURL
       });
-      setChosenStaff(new Staff());
+      setNewStaff(false);
     } catch (error) {
       console.log(error);
     }
-    if (chosenStaff.id === 0) {
+    if (!newStaff) {
       try {
         //All of the information
         const {data} = await axios.get('staff');
@@ -108,21 +108,22 @@ const StaffDirectory = (props: {user: User}) => {
       const {data} = await axios.put(`staff/${chosenStaff.id}`,{
         name: eName,
         about: eAbout,
-        contactEmail: eContactEmail,
-        contactPhone: eContactPhone,
-        contactModbile: eContactModbile,
-        contactFax: eContactFax,
-        focusArea: eFocusArea,
-        officeRoom: eOfficeRoom,
-        officeBuilding: eOfficeBuilding,
-        officeLocation: eOfficeLocation,
+        contact_email: eContactEmail,
+        contact_phone: eContactPhone,
+        contact_mobile: eContactModbile,
+        contact_fax: eContactFax,
+        focus_area: eFocusArea,
+        office_room: eOfficeRoom,
+        office_building: eOfficeBuilding,
+        office_location: eOfficeLocation,
         image_url: ePictureURL
       });
-      setChosenStaff(new Staff());
+      setIsEditing(false);
+
     } catch (error) {
       console.log(error);
     }
-    if (chosenStaff.id === 0) {
+    if (!isEditing) {
       try {
         //All of the information
         const {data} = await axios.get('staff');
@@ -134,41 +135,43 @@ const StaffDirectory = (props: {user: User}) => {
     }
   }
 
+  const del = async (id: number) => {
+    if (window.confirm('Are you sure you want to delete')) {
+      axios.delete(`staff/${id}`);
+
+      setStaffList(staffList.filter((staff: Staff) => staff.id !== id));
+    }
+  }
+
   const ActiveSection = () => {
-    if (chosenStaff.id === 0 && !newStaff) {
+    if (isEditing) {
       return(
         <div>
-          {props.user.id !== 0 &&  <button onClick = {() => setNewStaff(!newStaff)}>Create New Staff</button>}
-          <p>Please select a staff member</p>
-        </div>
-      );
-    } else if (newStaff) {
-      return(
-        <div>
-          <form onSubmit = {submitCreate}><button onClick = {() => setNewStaff(!newStaff)}>View</button>
+          <form onSubmit = {submitEdit}><button onClick = {() => setIsEditing(!isEditing)}>View</button>
           <label>Staff Name</label>
-          <input type = "text" onChange = {e => setCName(e.target.value)} required />
+          <input type = "text" onChange = {e => setEName(e.target.value)} defaultValue = {chosenStaff.name} required />
           <label>About {chosenStaff.name}</label>
-          <input type = "text" onChange = {e => setCAbout(e.target.value)} required />
+          <input type = "text" onChange = {e => setEAbout(e.target.value)} defaultValue = {chosenStaff.about} required />
           {/*Contact information section*/}
           <label>Contact Information</label>
           <label>Email</label>
-          <input type = "text" onChange = {e => setEContactEmail(e.target.value)} required />
+          <input type = "text" onChange = {e => setEContactEmail(e.target.value)} defaultValue = {chosenStaff.contact_email} required />
           <label>Phone</label>
-          <input type = "text" onChange = {e => setEContactPhone(e.target.value)} required />
+          <input type = "text" onChange = {e => setEContactPhone(e.target.value)} defaultValue = {chosenStaff.contact_phone} required />
           <label>Mobile</label>
-          <input type = "text" onChange = {e => setEContactMobile(e.target.value)} required />
+          <input type = "text" onChange = {e => setEContactMobile(e.target.value)} defaultValue = {chosenStaff.contact_mobile} required />
           <label>Fax</label>
-          <input type = "text" onChange = {e => setEContactFax(e.target.value)} required />
+          <input type = "text" onChange = {e => setEContactFax(e.target.value)} defaultValue = {chosenStaff.contact_fax} required />
           <label>Focuse area and Office Location</label>
           <label>Focus Area</label>
-          <input type = "text" onChange = {e => setEFocusArea(e.target.value)} required />
+          <input type = "text" onChange = {e => setEFocusArea(e.target.value)} defaultValue = {chosenStaff.focus_area} required />
           <label>Office Room</label>
-          <input type = "text" onChange = {e => setEOfficeRoom(e.target.value)} required />
+          <input type = "text" onChange = {e => setEOfficeRoom(e.target.value)} defaultValue = {chosenStaff.office_room} required />
           <label>Office Building</label>
-          <input type = "text" onChange = {e => setEOfficeBuilding(e.target.value)} required />
+          <input type = "text" onChange = {e => setEOfficeBuilding(e.target.value)} defaultValue = {chosenStaff.office_building} required />
           <label>Office Location</label>
-          <input type = "text" onChange = {e => setEOfficeLocation(e.target.value)} required />
+          <input type = "text" onChange = {e => setEOfficeLocation(e.target.value)} defaultValue = {chosenStaff.office_location} required />
+          <button onClick = {() => del(chosenStaff.id)}>Delete</button><br />
           <label>Image</label>
           <ImageUploadBlock pictureURL = {ePictureURL} setPictureURL = {setEPictureURL} />
           <button type = "submit">Submit</button>
@@ -177,8 +180,8 @@ const StaffDirectory = (props: {user: User}) => {
       );
     }
     return(
-      <div>{props.user.id !==0 && <button onClick = {() => setIsEditing(!isEditing)}>Edit</button>}
-        <h3>{chosenStaff.name}</h3>
+      <div>
+        <h3>{chosenStaff.name}</h3>{props.user.id !==0 && <button onClick = {() => setIsEditing(!isEditing)}>Edit</button>}<br />
         <p>{chosenStaff.about}</p>
         <p>Contact Information:
         <ul>
@@ -195,10 +198,15 @@ const StaffDirectory = (props: {user: User}) => {
           <li>Office Building {chosenStaff.office_building}</li>
           <li>Office Location {chosenStaff.office_location}</li>
         </ul>
-        </p>
+        </p>{props.user.id !==0 && <button onClick = {() => del(chosenStaff.id)}>Delete</button>}<br />
         <img src = {chosenStaff.image_url} />
       </div>
     );
+  }
+
+  const CreateFormButton = () => {
+    if (newStaff) {return(<button onClick = {() => setNewStaff(false)}>Close Form</button>);}
+    return(<button onClick = {() => setNewStaff(true)}>Create</button>);
   }
 
   return(
@@ -207,51 +215,56 @@ const StaffDirectory = (props: {user: User}) => {
         {/*This-is-gonna-be-the-search-bar*/
 
         /*This-is-gonna-be-the-results-list*/}
-        <h1>Staff Directory</h1>
-        <input type = "text" placeholder = "Enter a name here" onChange = {(e) => setSearch(e.target.value)} className = "searchbar"/>
-        {staffList.map((staff: Staff) => {
-          if (staff.name.includes(search)) {
-            return(
-              <StaffSearchBrief key = {staff.id} staff = {staff} setChosenStaff = {setChosenStaff}/>
-            );
-          }
-        })}
-        <button onClick = {prev}>Prev</button>
-        <button onClick = {next}>Next</button>
-      </div>
-      <div>
-        {isEditing?
+        <h1>Staff Directory</h1><br />
+        <input type = "text" placeholder = "Enter a name here" onChange = {(e) => setSearch(e.target.value)} className = "searchbar"/><br />
+        {props.user.id !== 0 && <CreateFormButton />}
+        {newStaff &&
           <div>
-            <form onSubmit = {submitEdit}><button onClick = {() => setIsEditing(!isEditing)}>View</button>
-            <label>Staff Name</label>
-            <input type = "text" onChange = {e => setEName(e.target.value)} defaultValue = {chosenStaff.name} required />
-            <label>About {chosenStaff.name}</label>
-            <input type = "text" onChange = {e => setEAbout(e.target.value)} defaultValue = {chosenStaff.about} required />
+            <form onSubmit = {submitCreate}><br />
+            <label>Staff Name</label><br />
+            <input type = "text" onChange = {e => setCName(e.target.value)} required /><br />
+            <label>About {cName}</label><br />
+            <input type = "text" onChange = {e => setCAbout(e.target.value)} required /><br />
             {/*Contact information section*/}
-            <label>Contact Information</label>
-            <label>Email</label>
-            <input type = "text" onChange = {e => setEContactEmail(e.target.value)} defaultValue = {chosenStaff.contact_email} required />
-            <label>Phone</label>
-            <input type = "text" onChange = {e => setEContactPhone(e.target.value)} defaultValue = {chosenStaff.contact_phone} required />
-            <label>Mobile</label>
-            <input type = "text" onChange = {e => setEContactMobile(e.target.value)} defaultValue = {chosenStaff.contact_mobile} required />
-            <label>Fax</label>
-            <input type = "text" onChange = {e => setEContactFax(e.target.value)} defaultValue = {chosenStaff.contact_fax} required />
-            <label>Focuse area and Office Location</label>
-            <label>Focus Area</label>
-            <input type = "text" onChange = {e => setEFocusArea(e.target.value)} defaultValue = {chosenStaff.focus_area} required />
-            <label>Office Room</label>
-            <input type = "text" onChange = {e => setEOfficeRoom(e.target.value)} defaultValue = {chosenStaff.office_room} required />
-            <label>Office Building</label>
-            <input type = "text" onChange = {e => setEOfficeBuilding(e.target.value)} defaultValue = {chosenStaff.office_building} required />
-            <label>Office Location</label>
-            <input type = "text" onChange = {e => setEOfficeLocation(e.target.value)} defaultValue = {chosenStaff.office_location} required />
-            <label>Image</label>
-            <ImageUploadBlock pictureURL = {ePictureURL} setPictureURL = {setEPictureURL} />
+            <label>Contact Information</label><br />
+            <label>Email</label><br />
+            <input type = "text" onChange = {e => setCContactEmail(e.target.value)} required /><br />
+            <label>Phone</label><br />
+            <input type = "text" onChange = {e => setCContactPhone(e.target.value)} required /><br />
+            <label>Mobile</label><br />
+            <input type = "text" onChange = {e => setCContactMobile(e.target.value)} required /><br />
+            <label>Fax</label><br />
+            <input type = "text" onChange = {e => setCContactFax(e.target.value)} required /><br />
+            <label>Focuse area and Office Location</label><br />
+            <label>Focus Area</label><br />
+            <input type = "text" onChange = {e => setCFocusArea(e.target.value)} required /><br />
+            <label>Office Room</label><br />
+            <input type = "text" onChange = {e => setCOfficeRoom(e.target.value)} required /><br />
+            <label>Office Building</label><br />
+            {cOfficeBuilding}
+            <input type = "text" onChange = {e => setCOfficeBuilding(e.target.value)} required /><br />
+            <label>Office Location</label><br />
+            <input type = "text" onChange = {e => setCOfficeLocation(e.target.value)} required /><br />
+            <label>Image</label><br />
+            <p>{cPictureURL}</p><br/>
+            <ImageUploadBlock pictureURL = {cPictureURL} setPictureURL = {setCPictureURL} /><br />
             <button type = "submit">Submit</button>
             </form>
-          </div> :
-          <ActiveSection />}
+          </div>
+        }
+        {staffList.map((staff: Staff) => {
+          if (staff.name.includes(search)) {
+            if (staff.id === chosenStaff.id) {
+              return(<ActiveSection />);
+            } else {
+              return(
+                <StaffSearchBrief key = {staff.id} staff = {staff} setChosenStaff = {setChosenStaff}/>
+              );
+            }
+          }
+        })}<br />
+        <button onClick = {prev}>Prev</button>
+        <button onClick = {next}>Next</button>
       </div>
     </div>
   );
