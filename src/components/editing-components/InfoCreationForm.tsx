@@ -25,7 +25,7 @@ const InfoCreationForm = (props: {newInfo: boolean, setNewInfo: (newInfo: boolea
   }
 
   return (
-    <div>
+    <div id="infoCreationForm">
       <form onSubmit = {submit}>
         <label>Head</label><br />
         <input type = "text" onChange = {e => setTitle(e.target.value)}

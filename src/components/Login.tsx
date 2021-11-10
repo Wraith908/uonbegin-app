@@ -34,15 +34,17 @@ const Login = (props: { user: User, setUser?: (user: User | ((prevVar: User) => 
   }
   return (
     <div id="loginForm">
-      <form onSubmit = {submit}>
-        <label>Email</label><br/>
-        <input type = "email" placeholder = "example@example.com" required
-          onChange = {e => setEmail(e.target.value)}/><br />
-        <label>Password</label><br/>
-        <input type = "password" required
-          onChange = {e => setPassword(e.target.value)}/><br />
-        <button type = "submit">Sign In</button>
-      </form>
+      <div id="loginFormBackground">
+        <form onSubmit = {submit}>
+          <label>Email</label><br/>
+          <input type = "email" placeholder = "example@example.com" required
+            onChange = {e => setEmail(e.target.value)}/><br />
+          <label>Password</label><br/>
+          <input type = "password" required
+            onChange = {e => setPassword(e.target.value)}/><br />
+          <button type = "submit">Sign In</button>
+        </form>
+      </div>
     </div>
   )
 };

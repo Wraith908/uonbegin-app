@@ -34,7 +34,7 @@ const Body = () => {
         </header>
         <Switch>
             <Route exact path = "/">
-              <InfoContainer title = "University Service" section_id = {1} user = {user} />
+              <InfoContainer title = "University Services" section_id = {1} user = {user} />
               <InfoContainer title = "University Locations" section_id = {5} user = {user} />
             </Route>
             <Route path = "/directory">
