@@ -60,6 +60,10 @@ body {             /*  --> Added by Aaron --> work on this later... */
   font-weight: bold;
 }
 
+.logo img {              /* UONBegin logo settings */
+  width: 20%;
+}
+
 /* - Staff Directory - */
 .nav-link2 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
   color: white;
