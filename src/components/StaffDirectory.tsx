@@ -186,23 +186,24 @@ const StaffDirectory = (props: {user: User}) => {
       );
     }
     return(
-      <div>
-        <h3>{chosenStaff.name}</h3>{props.user.id !==0 && <button onClick = {() => setIsEditing(!isEditing)}>Edit</button>}<br />
+      <div id="staffDirectoryTile">
+        <h3>{chosenStaff.name}</h3>{props.user.id !==0 && <button onClick = {() => setIsEditing(!isEditing)}>Edit</button>}
+        <hr />
         <p>{chosenStaff.about}</p>
         <p>Contact Information:
         <ul>
-          <li>Contact Email {chosenStaff.contact_email}</li>
-          <li>Contact Phone {chosenStaff.contact_phone}</li>
-          <li>Contact Mobile {chosenStaff.contact_mobile}</li>
-          <li>Contact Fax {chosenStaff.contact_fax}</li>
+          <li>Contact Email: {chosenStaff.contact_email}</li>
+          <li>Contact Phone: {chosenStaff.contact_phone}</li>
+          <li>Contact Mobile: {chosenStaff.contact_mobile}</li>
+          <li>Contact Fax: {chosenStaff.contact_fax}</li>
         </ul>
         </p>
-        <p>Focus Area and office:
+        <p>Focus Area and Office:
         <ul>
-          <li>Focus Area {chosenStaff.focus_area}</li>
-          <li>Office Room {chosenStaff.office_room}</li>
-          <li>Office Building {chosenStaff.office_building}</li>
-          <li>Office Location {chosenStaff.office_location}</li>
+          <li>Focus Area: {chosenStaff.focus_area}</li>
+          <li>Office Room: {chosenStaff.office_room}</li>
+          <li>Office Building: {chosenStaff.office_building}</li>
+          <li>Office Location: {chosenStaff.office_location}</li>
         </ul>
         </p>{props.user.id !==0 && <button onClick = {() => del(chosenStaff.id)}>Delete</button>}<br />
         <img src = {chosenStaff.image_url} />
@@ -220,7 +221,7 @@ const StaffDirectory = (props: {user: User}) => {
       <div>
         {/*Title section*/}
         <h1>Staff Directory</h1><br />
-        <input type = "text" placeholder = "Enter a name here" onChange = {(e) => setSearch(e.target.value)} className = "searchbar"/><br />
+        <input type = "text" placeholder = "Enter a name here to narrow your search..." onChange = {(e) => setSearch(e.target.value)} className = "searchbar"/><br />
         <button onClick = {commenceSearch}>Search</button>
       </div>
       <div>

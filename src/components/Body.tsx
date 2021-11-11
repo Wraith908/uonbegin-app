@@ -35,7 +35,7 @@ const Body = () => {
         <Switch>
             <Route exact path = "/">
               <InfoContainer title = "University Services" section_id = {1} user = {user} />
-              <InfoContainer title = "University Locations" section_id = {5} user = {user} />
+              <InfoContainer title = "Important Places" section_id = {5} user = {user} />
             </Route>
             <Route path = "/directory">
               <StaffDirectory user = {user} />

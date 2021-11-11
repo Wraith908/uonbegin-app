@@ -1,4 +1,4 @@
-/** ===================================== EDITS by Aaron - as of 10/11/21 ============================================== **/
+/** ===================================== EDITS by Aaron - as of 11/11/21 ============================================== **/
 
 
 @charset "UTF-8";
@@ -7,7 +7,6 @@ html, body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width:100%;
   height:100%;
-  
 }
 
 
@@ -132,13 +131,21 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /*************************************/
 
 #loginForm {            /* NEW - general div settings */
-  padding-top: 2em;
   padding-bottom: 5em;
+  margin-bottom: 15em;
+}
+
+#loginForm h2 {
+  background-color: #2ba3ff;
+  color: white;
+  padding: 10px;
+  margin-top: auto;
+  font-size: 1.5em;
 }
 
 #loginFormBackground {  /* NEW - small stylish background for the login form */
   background-color: #2ba3ff;
-  padding-top: 1.5em;
+  padding-top: 1.5em;   /* this creates some space between the bottom of the login form and the top of the footer */
   padding-bottom: 1.5em;
   border-radius: 10px;
   width: 40%;
@@ -150,6 +157,11 @@ body {             /*  --> Added by Aaron --> work on this later... */
   margin: auto;
   width: 60%;
   padding: 12px 20px;
+  border-radius: 5px;
+}
+
+#loginForm label {
+  color: white;
 }
 
 /******************************************************************/
@@ -179,6 +191,12 @@ body {             /*  --> Added by Aaron --> work on this later... */
   border-radius: 10px;
   width: 40%;
   margin:auto;
+  margin-bottom: 1em;
+}
+
+#infoBlock p {
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 #infoBlock img {              /* image proportion settings */
@@ -193,7 +211,13 @@ body {             /*  --> Added by Aaron --> work on this later... */
 
 
 #staffDirectory h1 {    /* leave this for now... */
-  background-color: #2ba3ff;
+  background-color: #2ba3ff;    /* standard banner settings */
+  color: white;
+  padding: 10px;
+  margin-top: auto;
+  font-size: 1.5em;
+  
+  /*background-color: #2ba3ff;    -> old settings
   color: white;
   text-align: left;
   margin-top: auto;
@@ -202,10 +226,48 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding-right: 4em;
   padding-bottom: 10em;
   font-size: 1.5em;
-  width: fit-content;   /* maybe use something else later... */
+  width: fit-content;   -> maybe use something else later... */
 }
 
+#staffDirectory input {   /* affects the staff directory search bar */
+  margin-top: 0;
+  width: 40%;
+  padding: 12px 20px;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
 
+#staffDirectory button {
+  margin-bottom: 1em;
+}
+
+/*#staffDirectory form {
+  
+}*/
+
+#staffDirectoryTile {     /* affects the appearence of the staff directroy tiles/info blocks */
+  background-color: #2ba3ff;
+  color: white;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+  border-radius: 10px;
+  width: 60%;
+  margin:auto;
+  margin-bottom: 1em;
+}
+
+#staffDirectoryTile hr {    /* decorative horizontal line */
+  width: 80%;
+  border: 2px solid white;
+}
+
+#staffDirectoryTile li {    /* gets rid of the default bullet points */
+  list-style: none;
+}
+
+#staffDirectoryTile button {
+  float: center;
+}
 
 /*************************************/
 /*    Week 1 Survival Pack page      */
@@ -272,8 +334,8 @@ footer {               /* Added by Aaron */
   padding: 10px 10px 10px 10px;
   position: relative;     /* making it FIXED sets it to the bottom but it never disappears and may block content, making it RELATIVE detatches it from the bottom 
                           but creates a massive gap at the bottom until content is placed on the page */
-  bottom: 0;    
-
+  bottom:0;    
+  margin-top: 1em;
 }
 
 footer h3{

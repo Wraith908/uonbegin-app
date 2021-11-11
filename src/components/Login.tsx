@@ -34,6 +34,7 @@ const Login = (props: { user: User, setUser?: (user: User | ((prevVar: User) => 
   }
   return (
     <div id="loginForm">
+      <h2>Please Sign In With Admin ID</h2>
       <div id="loginFormBackground">
         <form onSubmit = {submit}>
           <label>Email</label><br/>
