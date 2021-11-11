@@ -97,7 +97,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
   }
 
   return(
-    <div id={props.title}>
+    <div id="bannerSettings">
       <h1>{props.title}</h1>
       {newInfo?
         <button onClick = {swapNewInfo}>Close Form</button> :

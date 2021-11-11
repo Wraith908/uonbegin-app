@@ -149,12 +149,11 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding: 12px 20px;
 }
 
-/*************************************/
-/*     University Services page      */
-/*************************************/
+/******************************************************************/
+/*     Banner Settings for each page (except Staff Directory)     */
+/******************************************************************/
 
-#uniServices h1 {       /* Added by Aaron - alters aspects of the 'University Services' banner/title
-                          NOTE: 'div id' was added to the div in 'UniversityServices.tsx' */
+#bannerSettings h1 {       /* edits banners - renamed from 'uniServices' */
   background-color: #2ba3ff;
   color: white;
   padding: 10px;
@@ -162,11 +161,6 @@ body {             /*  --> Added by Aaron --> work on this later... */
   font-size: 1.5em;
 }
 
-/*#infoForm input{      doesn't seem to work - from InfoContainer
-  margin: auto;
-  width: 30%;
-  padding: 12px 20px;
-}*/
 
 #infoCreationForm input {     /* works - from InfoCreationForm */
   margin: auto;
@@ -205,12 +199,8 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding-right: 4em;
   padding-bottom: 10em;
   font-size: 1.5em;
-  width: fit-content;   /* mayyybe use something else later... */
+  width: fit-content;   /* maybe use something else later... */
 }
-
-/*#staffDirectory hr{
-  padding: 0%;
-}*/
 
 
 
@@ -219,7 +209,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /*************************************/
 
 
-#week1SurvivalPack h1 {
+/*#week1SurvivalPack h1 {     -> irrelevant now 
   background-color: #2ba3ff;
   color: white;
   padding: 10px;
@@ -227,7 +217,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   font-size: 1.5em;
 }
 
-#w1spContent{ /* !!! THIS will be deleted later... !!! */
+#w1spContent{ /* !!! THIS will be deleted later... !!!
   background-color: lightskyblue;
   width:fit-content;
   padding: 10px;
@@ -245,13 +235,13 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /***************************************/
 
 
-#uniExpectations h1 {
+/*#uniExpectations h1 {
   background-color: #2ba3ff;
   color: white;
   padding: 10px;
   margin-top: auto;
   font-size: 1.5em;
-}
+}*/
 
 
 /*************************************/
@@ -259,13 +249,13 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /*************************************/
 
 
-#FAQsAndTestimonials h1 {
+/*#FAQsAndTestimonials h1 {
   background-color: #2ba3ff;
   color: white;
   padding: 10px;
   margin-top: auto;
   font-size: 1.5em;
-}
+}*/
 
 
 /*************************************/

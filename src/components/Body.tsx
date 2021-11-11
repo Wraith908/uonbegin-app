@@ -47,7 +47,8 @@ const Body = () => {
               <InfoContainer title = "University Expectations" section_id = {3} user = {user} />
             </Route>
             <Route path = "/faqs-and-testimonials">
-              <InfoContainer title = "FAQs and Testimonials" section_id = {4} user = {user} />
+              <InfoContainer title = "Frequently Asked Questions" section_id = {4} user = {user} />
+              <InfoContainer title = "Student Testimonials" section_id = {6} user = {user} />
             </Route>
             <Route path = "/login">
               <Login user = {user} setUser = {setUser}/>
