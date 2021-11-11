@@ -8,7 +8,8 @@ const StaffSearchBrief = (props: {staff: Staff, setChosenStaff: (staff: Staff | 
     <a onClick = {() => props.setChosenStaff(props.staff)}>
       <div>
         <h3>{props.staff.name}</h3><br />
-        <p>Contact email: {props.staff.contact_email}</p>
+        <img src = {props.staff.image_url} /><br />
+        <p>Contact email: {props.staff.contact_email}</p><br />
         <p>Office Room: {props.staff.office_room}</p>
       </div>
     </a>
