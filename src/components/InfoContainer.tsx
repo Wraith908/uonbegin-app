@@ -111,8 +111,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
             <input type = "text" onChange = {e => setCTitle(e.target.value)}
             placeholder = "Header" required /><br />
             <label>Body</label><br />
-            <input type = "text-area" onChange = {e => setCBody(e.target.value)}
-            placeholder = "Body of the information block" required /><br />
+            <textarea onChange = {e => setCBody(e.target.value)} required></textarea><br />
             <label>Image</label><br />
             {cPictureURL === ''?
               <p>No picture</p>:
@@ -136,8 +135,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
                   <input type = "text" name = "title" placeholder = "Header"
                   onChange = {e => setETitle(e.target.value)} defaultValue = {info.title} required /><br />
                   <label>Body</label><br />
-                  <input type = "text-area" name = "body" placeholder = "Body of the information block"
-                  onChange = {e => setEBody(e.target.value)} defaultValue = {info.body} required /><br />
+                  <textarea onChange = {e => setEBody(e.target.value)} required>{info.body}</textarea><br />
                   {ePictureURL === ''?
                     <p>No picture</p>:
                     <div>
