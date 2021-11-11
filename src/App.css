@@ -181,6 +181,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   margin: auto;
   width: 30%;
   padding: 12px 20px;
+  white-space: pre-line;
 }
 
 #infoBlock {                  /* works - alters the blocks of info when they are created */
@@ -197,6 +198,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
 #infoBlock p {
   padding-left: 1em;
   padding-right: 1em;
+  white-space: pre-line;  
 }
 
 #infoBlock img {              /* image proportion settings */
@@ -216,7 +218,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding: 10px;
   margin-top: auto;
   font-size: 1.5em;
-  
+
   /*background-color: #2ba3ff;    -> old settings
   color: white;
   text-align: left;
@@ -242,7 +244,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
 }
 
 /*#staffDirectory form {
-  
+
 }*/
 
 #staffDirectoryTile {     /* affects the appearence of the staff directroy tiles/info blocks */
@@ -274,7 +276,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /*************************************/
 
 
-/*#week1SurvivalPack h1 {     -> irrelevant now 
+/*#week1SurvivalPack h1 {     -> irrelevant now
   background-color: #2ba3ff;
   color: white;
   padding: 10px;
@@ -332,9 +334,9 @@ footer {               /* Added by Aaron */
   background: slategray;
   color: white;
   padding: 10px 10px 10px 10px;
-  position: relative;     /* making it FIXED sets it to the bottom but it never disappears and may block content, making it RELATIVE detatches it from the bottom 
+  position: relative;     /* making it FIXED sets it to the bottom but it never disappears and may block content, making it RELATIVE detatches it from the bottom
                           but creates a massive gap at the bottom until content is placed on the page */
-  bottom:0;    
+  bottom:0;
   margin-top: 1em;
 }
 

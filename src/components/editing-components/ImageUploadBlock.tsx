@@ -2,8 +2,6 @@ import React, { SyntheticEvent, useState } from 'react';
 import axios from 'axios';
 
 const ImageUploadBlock = (props: {pictureURL: string, setPictureURL?: (pictureURL: string | ((prevVar: string) => string)) => void}) => {
-  const [imageName, setImageName] = useState('');
-  const [altText, setAltText] = useState('');
 
   const upload = async (files: FileList | null) => {
     const formData = new FormData();

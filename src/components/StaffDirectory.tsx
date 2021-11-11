@@ -157,7 +157,7 @@ const StaffDirectory = (props: {user: User}) => {
           <label>Staff Name</label><br />
           <input type = "text" onChange = {e => setEName(e.target.value)} defaultValue = {chosenStaff.name} required /><br />
           <label>About {chosenStaff.name}</label><br />
-          <input type = "text" onChange = {e => setEAbout(e.target.value)} defaultValue = {chosenStaff.about} required /><br />
+          <input type = "text-area" onChange = {e => setEAbout(e.target.value)} defaultValue = {chosenStaff.about} required /><br />
           {/*Contact information section*/}
           <label>Contact Information</label><br />
           <label>Email</label><br />
@@ -233,7 +233,7 @@ const StaffDirectory = (props: {user: User}) => {
             <label>Staff Name</label><br />
             <input type = "text" onChange = {e => setCName(e.target.value)} required /><br />
             <label>About {cName}</label><br />
-            <input type = "text" onChange = {e => setCAbout(e.target.value)} required /><br />
+            <input type = "text-area" onChange = {e => setCAbout(e.target.value)} required /><br />
             {/*Contact information section*/}
             <label>Contact Information</label><br />
             <label>Email</label><br />

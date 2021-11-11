@@ -76,6 +76,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
 
   const submitEdit = async (e: SyntheticEvent) => {
     e.preventDefault();
+    setEID(editInfo.id);
     try {
       const {data} = await axios.put(`info/${eId}`,{
         title: eTitle,
@@ -110,7 +111,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
             <input type = "text" onChange = {e => setCTitle(e.target.value)}
             placeholder = "Header" required /><br />
             <label>Body</label><br />
-            <input type = "text" onChange = {e => setCBody(e.target.value)}
+            <input type = "text-area" onChange = {e => setCBody(e.target.value)}
             placeholder = "Body of the information block" required /><br />
             <label>Image</label><br />
             {cPictureURL === ''?
@@ -129,14 +130,20 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
           if (info.id === editInfo.id) {
             return(
               <div id = "infoCreationForm">
+                <button onClick = {() => setEditInfo(new Information())}>Close Edit</button><br />
                 <form onSubmit = {submitEdit}>
-                  <label>Head</label><button onClick = {() => setEditInfo(new Information())}>Close Edit</button><br />
+                  <label>Head</label><br />
                   <input type = "text" name = "title" placeholder = "Header"
                   onChange = {e => setETitle(e.target.value)} defaultValue = {info.title} required /><br />
                   <label>Body</label><br />
-                  <input type = "text" name = "body" placeholder = "Body of the information block"
+                  <input type = "text-area" name = "body" placeholder = "Body of the information block"
                   onChange = {e => setEBody(e.target.value)} defaultValue = {info.body} required /><br />
-                  <label>{info.image_url === ""?<p>Would you like to attach an image?</p>:<p>{info.image_url}</p>}</label><br />
+                  {ePictureURL === ''?
+                    <p>No picture</p>:
+                    <div>
+                      <p>{ePictureURL}</p><button onClick = {() => setEPictureURL('')}>Remove picture</button>
+                    </div>
+                  }
                   <ImageUploadBlock pictureURL = {ePictureURL} setPictureURL = {setEPictureURL} />
                   <button type = "submit">Submit</button>
                 </form>
