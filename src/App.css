@@ -5,6 +5,9 @@
 
 html, body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width:100%;
+  height:100%;
+  
 }
 
 
@@ -17,6 +20,8 @@ header {                /* Added by Aaron -
 
 body {             /*  --> Added by Aaron --> work on this later... */
   margin: auto;    /* --> Fix for the weird white border issue we had earlier, due to the user agent stylesheet... */
+  width:100%;
+  height:100%;
 }
 
 .navbar {               /* Added by Aaron - try messing around with this... */
@@ -138,8 +143,6 @@ body {             /*  --> Added by Aaron --> work on this later... */
   border-radius: 10px;
   width: 40%;
   margin:auto;
-  /*justify-content: center;
-  align-content: center;*/
 }
 
 #loginForm input{       /* NEW - textbox settings */
@@ -178,11 +181,11 @@ body {             /*  --> Added by Aaron --> work on this later... */
   margin:auto;
 }
 
-/*#uniServices hr{    -> mess with this later
-  height: 2em;
-  border-color: red;
-  border-width: 2em;
-}*/
+#infoBlock img {              /* image proportion settings */
+  width: 60%;
+  /*height: 15em;*/
+}
+
 
 /*************************************/
 /*       Staff Directory page        */
@@ -263,20 +266,13 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /*************************************/
 
 
-spacer {
-  color: red;
-  padding:5em;
-}
-
-
 footer {               /* Added by Aaron */
   background: slategray;
   color: white;
   padding: 10px 10px 10px 10px;
   position: relative;     /* making it FIXED sets it to the bottom but it never disappears and may block content, making it RELATIVE detatches it from the bottom 
                           but creates a massive gap at the bottom until content is placed on the page */
-  bottom: 0;
-  width: 100%;      
+  bottom: 0;    
 
 }
 
