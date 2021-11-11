@@ -48,7 +48,7 @@ const StaffDirectory = (props: {user: User}) => {
     (
       async () => {
         try {
-          const {data} = await axios.get('staff');
+          const {data} = await axios.get(`staff?page=${page}`);
           setStaffList(data.data);
           setLastPage(data.meta.last_page);
         } catch (error) {
@@ -139,6 +139,16 @@ const StaffDirectory = (props: {user: User}) => {
     }
   }
 
+  const commenceSearch = async () => {
+    try {
+      const {data} = await axios.get(`staff?page=${page}&?search=${search}`);
+      setStaffList(data.data);
+      setLastPage(data.meta.last_page);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const ActiveSection = () => {
     if (isEditing) {
       return(
@@ -208,11 +218,13 @@ const StaffDirectory = (props: {user: User}) => {
   return(
     <div id="staffDirectory">
       <div>
-        {/*This-is-gonna-be-the-search-bar*/
-
-        /*This-is-gonna-be-the-results-list*/}
+        {/*Title section*/}
         <h1>Staff Directory</h1><br />
         <input type = "text" placeholder = "Enter a name here" onChange = {(e) => setSearch(e.target.value)} className = "searchbar"/><br />
+        <button onClick = {commenceSearch}>Search</button>
+      </div>
+      <div>
+        {/*adding new sections to the database*/}
         {props.user.id !== 0 && <CreateFormButton />}
         {newStaff &&
           <div>
@@ -248,15 +260,14 @@ const StaffDirectory = (props: {user: User}) => {
             </form>
           </div>
         }
+        {/*Search results section*/}
         {staffList.map((staff: Staff) => {
-          if (staff.name.includes(search)) {
-            if (staff.id === chosenStaff.id) {
-              return(<ActiveSection />);
-            } else {
-              return(
-                <StaffSearchBrief key = {staff.id} staff = {staff} setChosenStaff = {setChosenStaff}/>
-              );
-            }
+          if (staff.id === chosenStaff.id) {
+            return(<ActiveSection />);
+          } else {
+            return(
+              <StaffSearchBrief key = {staff.id} staff = {staff} setChosenStaff = {setChosenStaff}/>
+            );
           }
         })}<br />
         <button onClick = {prev}>Prev</button>
