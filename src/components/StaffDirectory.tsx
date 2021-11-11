@@ -141,7 +141,7 @@ const StaffDirectory = (props: {user: User}) => {
 
   const commenceSearch = async () => {
     try {
-      const {data} = await axios.get(`staff?page=${page}&?search=${search}`);
+      const {data} = await axios.get(`staff/search?page=${page}&search=${search}`);
       setStaffList(data.data);
       setLastPage(data.meta.last_page);
     } catch (error) {
