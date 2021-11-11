@@ -153,33 +153,33 @@ const StaffDirectory = (props: {user: User}) => {
     if (isEditing) {
       return(
         <div>
-          <form onSubmit = {submitEdit}><button onClick = {() => setIsEditing(!isEditing)}>View</button>
-          <label>Staff Name</label>
-          <input type = "text" onChange = {e => setEName(e.target.value)} defaultValue = {chosenStaff.name} required />
-          <label>About {chosenStaff.name}</label>
-          <input type = "text" onChange = {e => setEAbout(e.target.value)} defaultValue = {chosenStaff.about} required />
+          <form onSubmit = {submitEdit}><button onClick = {() => setIsEditing(!isEditing)}>View</button><br />
+          <label>Staff Name</label><br />
+          <input type = "text" onChange = {e => setEName(e.target.value)} defaultValue = {chosenStaff.name} required /><br />
+          <label>About {chosenStaff.name}</label><br />
+          <input type = "text" onChange = {e => setEAbout(e.target.value)} defaultValue = {chosenStaff.about} required /><br />
           {/*Contact information section*/}
-          <label>Contact Information</label>
-          <label>Email</label>
-          <input type = "text" onChange = {e => setEContactEmail(e.target.value)} defaultValue = {chosenStaff.contact_email} required />
-          <label>Phone</label>
-          <input type = "text" onChange = {e => setEContactPhone(e.target.value)} defaultValue = {chosenStaff.contact_phone} required />
-          <label>Mobile</label>
-          <input type = "text" onChange = {e => setEContactMobile(e.target.value)} defaultValue = {chosenStaff.contact_mobile} required />
-          <label>Fax</label>
-          <input type = "text" onChange = {e => setEContactFax(e.target.value)} defaultValue = {chosenStaff.contact_fax} required />
-          <label>Focuse area and Office Location</label>
-          <label>Focus Area</label>
-          <input type = "text" onChange = {e => setEFocusArea(e.target.value)} defaultValue = {chosenStaff.focus_area} required />
-          <label>Office Room</label>
-          <input type = "text" onChange = {e => setEOfficeRoom(e.target.value)} defaultValue = {chosenStaff.office_room} required />
-          <label>Office Building</label>
-          <input type = "text" onChange = {e => setEOfficeBuilding(e.target.value)} defaultValue = {chosenStaff.office_building} required />
-          <label>Office Location</label>
-          <input type = "text" onChange = {e => setEOfficeLocation(e.target.value)} defaultValue = {chosenStaff.office_location} required />
+          <label>Contact Information</label><br />
+          <label>Email</label><br />
+          <input type = "text" onChange = {e => setEContactEmail(e.target.value)} defaultValue = {chosenStaff.contact_email} required /><br />
+          <label>Phone</label><br />
+          <input type = "text" onChange = {e => setEContactPhone(e.target.value)} defaultValue = {chosenStaff.contact_phone} required /><br />
+          <label>Mobile</label><br />
+          <input type = "text" onChange = {e => setEContactMobile(e.target.value)} defaultValue = {chosenStaff.contact_mobile} required /><br />
+          <label>Fax</label><br />
+          <input type = "text" onChange = {e => setEContactFax(e.target.value)} defaultValue = {chosenStaff.contact_fax} required /><br />
+          <label>Focuse area and Office Location</label><br />
+          <label>Focus Area</label><br />
+          <input type = "text" onChange = {e => setEFocusArea(e.target.value)} defaultValue = {chosenStaff.focus_area} required /><br />
+          <label>Office Room</label><br />
+          <input type = "text" onChange = {e => setEOfficeRoom(e.target.value)} defaultValue = {chosenStaff.office_room} required /><br />
+          <label>Office Building</label><br />
+          <input type = "text" onChange = {e => setEOfficeBuilding(e.target.value)} defaultValue = {chosenStaff.office_building} required /><br />
+          <label>Office Location</label><br />
+          <input type = "text" onChange = {e => setEOfficeLocation(e.target.value)} defaultValue = {chosenStaff.office_location} required /><br />
           <button onClick = {() => del(chosenStaff.id)}>Delete</button><br />
-          <label>Image</label>
-          <ImageUploadBlock pictureURL = {ePictureURL} setPictureURL = {setEPictureURL} />
+          <label>Image</label><br />
+          <ImageUploadBlock pictureURL = {ePictureURL} setPictureURL = {setEPictureURL} /><br />
           <button type = "submit">Submit</button>
           </form>
         </div>
