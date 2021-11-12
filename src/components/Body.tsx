@@ -20,7 +20,7 @@ const Body = () => {
       <Router>
         <header className = "navbar">
           <nav>
-            <Link to = "/" className = "logo"><img src = "logo.png" /></Link>
+            <img src = "logo.png" className = "logo" />
             <Link to = "/" className = "nav-link1">University Services</Link>
             <Link to = "/directory" className = "nav-link2">Staff Directory</Link>
             <Link to = "/week-one-survival-pack" className = "nav-link3">Week 1 Survival Pack</Link>

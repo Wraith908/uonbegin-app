@@ -14,7 +14,7 @@ header {                /* Added by Aaron -
                         <<< NOTE -> 'header' and 'navbar' seem to be the same thing...? >>> */
   background: lightskyblue; /* overriden by the 'navbar' background element - delete later... */
   padding: 15px;
-  padding-top: 4em;
+  padding-top: 2em;
 }
 
 body {             /*  --> Added by Aaron --> work on this later... */
@@ -26,6 +26,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
 .navbar {               /* Added by Aaron - try messing around with this... */
   background: slategray;
   text-align: right;
+  padding-right: 2em;
   /*position: fixed;    -> kinda want to make this 'static' so it doesn't disappear when scrolling up... not a big priority
   width: 100%;*/
 }
@@ -35,17 +36,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /*      'nav-link' changes        */
 /**********************************/
 
-/*ORIGINAL classname for 'navbar' elements
-.nav-link {             /* Added by Aaron --> Changes aspects of the 'navbar' links
-  color: white;
-  font-size: 1.1em;
-  /*background-color: blue;
-  padding: 5px;
-  padding-right: 1.5em;
-}*/
-
-
-/*NEW classnames for 'navbar' elements*/
+/* Classnames for 'navbar' elements*/
 /* - University Services - */
 .nav-link1 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
   color: white;
@@ -55,13 +46,16 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding-right: 0.5em;
   padding-left: 0.5em;
   margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
-  /*transform: skew(-20deg);   does not work... --- not a high priority at this point --- */
   text-decoration: none;
   font-weight: bold;
+  /*text-align: right;*/      
 }
 
-.logo img {              /* UONBegin logo settings */
-  width: 15%;
+.logo {                 /* UONBegin logo settings */
+  width: 20%;
+  text-align: left;
+  padding-right: 10%;
+  margin-top: 0;
 }
 
 /* - Staff Directory - */
@@ -75,6 +69,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
   text-decoration: none;
   font-weight: bold;
+  /*text-align: right;*/
 }
 
 /* - Week 1 Survival Pack - */
@@ -88,6 +83,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
   text-decoration: none;
   font-weight: bold;
+  /*text-align: right;*/
 }
 
 /* - What to expect at University - */
@@ -101,6 +97,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
   text-decoration: none;
   font-weight: bold;
+  /*text-align: right;*/
 }
 
 /* - FAQs and Testimonials - */
@@ -114,6 +111,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
   text-decoration: none;
   font-weight: bold;
+  /*text-align: right;*/
 }
 
 /*************************************/
@@ -128,6 +126,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding-left: 0.5em;
   text-decoration: none;
   font-weight: bold;
+  /*text-align: right;*/
 }
 
 /*************************************/
@@ -257,9 +256,14 @@ body {             /*  --> Added by Aaron --> work on this later... */
   margin-bottom: 1em;
 }
 
-/*#staffDirectory form {
+#staffCreate form {
+  margin: auto;
+  background-color: #2ba3ff;
+  border-radius: 10px;
+  color: white;
+  width: 50%;
+}
 
-}*/
 
 #staffDirectoryTile {     /* affects the appearence of the staff directroy tiles/info blocks */
   background-color: #2ba3ff;
