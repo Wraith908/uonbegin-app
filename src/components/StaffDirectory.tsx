@@ -276,7 +276,7 @@ const StaffDirectory = (props: {user: User}) => {
           } else {
             return(
               <a onClick = {() => setEdit(staff)}>
-                <div>
+                <div id="staffBrief">
                   <h3>{staff.name}</h3><br />
                   <p>Contact email: {staff.contact_email}</p><br />
                   <p>Office Room: {staff.office_room}</p>
