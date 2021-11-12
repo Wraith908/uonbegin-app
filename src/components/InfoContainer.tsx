@@ -13,9 +13,6 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
   /*State variables*/
   const [editInfo, setEditInfo] = useState(new Information());
   const [newInfo, setNewInfo] = useState(false);
-  const [optionSelected, setOptionSelected] = useState(0);
-  /*Image Upload*/
-  const [pictureID, setPictureID] = useState(0);
   /*Edit/Create variables*/
   const [eId, setEID] = useState(0);
   const [eTitle, setETitle] = useState('');
@@ -30,8 +27,8 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
       async () => {
         try {
           //All of the information
-          const {data} = await axios.get('info');
-          setInformation(data.data);
+          const {data} = await axios.get(`info/`);
+          setInformation(data);
         } catch (error) {
           console.log(error);
         }
@@ -55,12 +52,15 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
   const submitCreate = async (e: SyntheticEvent) => {
     e.preventDefault();
     try {
-      const {data} = await axios.post('info', {
+      await axios.post('info', {
           title: cTitle,
           body: cBody,
           section_id: props.section_id,
           image_url:  cPictureURL
       })
+      setCTitle('');
+      setCBody('');
+      setCPictureURL('');
       setNewInfo(false);
     } catch (error) {
       console.log(error);
@@ -68,7 +68,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
     try {
       //All of the information
       const {data} = await axios.get('info');
-      setInformation(data.data);
+      setInformation(data);
     } catch (error) {
       console.log(error);
     }
@@ -78,7 +78,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
     e.preventDefault();
     setEID(editInfo.id);
     try {
-      const {data} = await axios.put(`info/${eId}`,{
+      await axios.put(`info/${eId}`,{
         title: eTitle,
         body: eBody,
         section_id: props.section_id,
@@ -91,7 +91,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
     try {
       //All of the information
       const {data} = await axios.get('info');
-      setInformation(data.data);
+      setInformation(data);
     } catch (error) {
       console.log(error);
     }
@@ -135,7 +135,7 @@ const InfoContainer = (props: {title: string, section_id: number, user: User}) =
                   <input type = "text" name = "title" placeholder = "Header"
                   onChange = {e => setETitle(e.target.value)} defaultValue = {info.title} required /><br />
                   <label>Body</label><br />
-                  <textarea onChange = {e => setEBody(e.target.value)} required>{info.body}</textarea><br />
+                  <textarea onChange = {e => setEBody(e.target.value)} defaultValue = {info.body} required></textarea><br />
                   {ePictureURL === ''?
                     <p>No picture</p>:
                     <div>

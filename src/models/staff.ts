@@ -10,7 +10,6 @@ export class Staff {
     public focus_area = '',
     public office_room = '',
     public office_building = '',
-    public office_location = '',
-    public image_url = '') {}
+    public office_location = '') {}
 
 }

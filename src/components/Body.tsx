@@ -28,7 +28,7 @@ const Body = () => {
             <Link to = "/faqs-and-testimonials" className = "nav-link5">FAQs and Testimonials</Link>
             {user.id === 0 ?
               <Link to = "/login" className = "login-link">Login</Link> :
-              <Link to = "/" onClick = {logout} className = "logout-link">Logout</Link>
+              <Link to = "/" onClick = {logout} className = "login-link">Logout</Link>
             }
           </nav>
         </header>
