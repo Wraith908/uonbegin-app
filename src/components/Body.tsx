@@ -27,6 +27,7 @@ const Body = () => {
             <Link to = "/week-one-survival-pack" className = "nav-link3">Week 1 Survival Pack</Link>
             <Link to = "/university-expectations" className = "nav-link4">What to expect at University</Link>
             <Link to = "/faqs-and-testimonials" className = "nav-link5">FAQs and Testimonials</Link>
+            <Link to = "/chatbot" className = "nav-link6">Chatbot</Link>
             {user.id === 0 ?
               <Link to = "/login" className = "login-link">Login</Link> :
               <Link to = "/" onClick = {logout} className = "login-link">Logout</Link>
@@ -54,8 +55,8 @@ const Body = () => {
             <Route path = "/login">
               <Login user = {user} setUser = {setUser}/>
             </Route>
-            <Route path = "/error">
-
+            <Route path = "/chatbot">
+              <Chatbot />
             </Route>
             <Route path = "*">
               <NoMatch />
