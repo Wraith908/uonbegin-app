@@ -61,7 +61,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
 }
 
 .logo img {              /* UONBegin logo settings */
-  width: 20%;
+  width: 15%;
 }
 
 /* - Staff Directory - */
@@ -172,7 +172,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
 /*     Banner Settings for each page (except Staff Directory)     */
 /******************************************************************/
 
-#bannerSettings h1 {       /* edits banners - renamed from 'uniServices' */
+#bannerSettings h1 {            /* edits banners - renamed from 'uniServices' */
   background-color: #2ba3ff;
   color: white;
   padding: 10px;
@@ -181,14 +181,24 @@ body {             /*  --> Added by Aaron --> work on this later... */
 }
 
 
-#infoCreationForm input {     /* works - from InfoCreationForm */
+#infoCreationForm input {       /* works - from InfoCreationForm */
   margin: auto;
   width: 30%;
   padding: 12px 20px;
+  border-radius: 5px;
   white-space: pre-line;
 }
 
-#infoBlock {                  /* works - alters the blocks of info when they are created */
+#infoCreationForm textarea {    /* NEW - adjusts the textarea proportions - text areas are now larger */
+  margin: auto;
+  width: 30%;
+  height: 150px;
+  padding: 20px;
+  border-radius: 5px;           /* extra styling */
+  white-space: pre-line;
+}
+
+#infoBlock {                    /* works - alters the blocks of info when they are created */
   background-color: #2ba3ff;
   color: white;
   padding-top: 1em;
