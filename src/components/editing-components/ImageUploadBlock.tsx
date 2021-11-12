@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 
 const ImageUploadBlock = (props: {pictureURL: string, setPictureURL?: (pictureURL: string | ((prevVar: string) => string)) => void}) => {
