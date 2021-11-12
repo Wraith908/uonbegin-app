@@ -4,6 +4,7 @@ import axios from 'axios';
 import StaffDirectory from './StaffDirectory';
 import InfoContainer from './InfoContainer';
 import Login from './Login';
+import Chatbot from './webbot/chat-bot';
 import NoMatch from './NoMatch';
 import { User } from '../models/user';
 
