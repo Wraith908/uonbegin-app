@@ -185,7 +185,7 @@ const StaffDirectory = (props: {user: User}) => {
         {/*adding new sections to the database*/}
         {props.user.id !== 0 && <CreateFormButton />}
         {newStaff &&
-          <div>
+          <div id="staffCreate">
             <form onSubmit = {submitCreate}><br />
             <label>Staff Name</label><br />
             <input type = "text" onChange = {e => setCName(e.target.value)} required /><br />
