@@ -3,6 +3,7 @@
     height: 50vh;
     background-color: rgba(202, 214, 226, 0.329);
     width: 100vw;
+    margin-bottom: 102em;           /* lots of margin bottom to avoid the footer blocking the suggestions */
 }
 
 .message-area{
@@ -55,12 +56,12 @@ overflow-y: scroll;
     text-align: right;
     color:black;
 }
-img{
+/*img{
     height: 30px;
     width: 30px;
     border-radius: 25%;
     
-}
+}*/
 b{
     margin-left:10px;
 }

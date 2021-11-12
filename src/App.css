@@ -45,7 +45,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding: 5px;
   padding-right: 0.5em;
   padding-left: 0.5em;
-  margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  margin-right: 2em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
   text-decoration: none;
   font-weight: bold;
   /*text-align: right;*/      
@@ -66,7 +66,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding: 5px;
   padding-right: 0.5em;
   padding-left: 0.5em;
-  margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  margin-right: 2em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
   text-decoration: none;
   font-weight: bold;
   /*text-align: right;*/
@@ -80,7 +80,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding: 5px;
   padding-right: 0.5em;
   padding-left: 0.5em;
-  margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  margin-right: 2em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
   text-decoration: none;
   font-weight: bold;
   /*text-align: right;*/
@@ -94,7 +94,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding: 5px;
   padding-right: 0.5em;
   padding-left: 0.5em;
-  margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  margin-right: 2em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
   text-decoration: none;
   font-weight: bold;
   /*text-align: right;*/
@@ -108,7 +108,20 @@ body {             /*  --> Added by Aaron --> work on this later... */
   padding: 5px;
   padding-right: 0.5em;
   padding-left: 0.5em;
-  margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  margin-right: 2em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  text-decoration: none;
+  font-weight: bold;
+  /*text-align: right;*/
+}
+
+.nav-link6 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
+  color: white;
+  border-radius: 5px;
+  background-color: blue;
+  padding: 5px;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-right: 2em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
   text-decoration: none;
   font-weight: bold;
   /*text-align: right;*/
@@ -355,7 +368,7 @@ footer {               /* Added by Aaron */
   position: relative;     /* making it FIXED sets it to the bottom but it never disappears and may block content, making it RELATIVE detatches it from the bottom
                           but creates a massive gap at the bottom until content is placed on the page */
   bottom:0;
-  margin-top: 1em;
+  margin-top: 15em;
 }
 
 footer h3{
