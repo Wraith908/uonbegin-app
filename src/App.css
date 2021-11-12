@@ -13,8 +13,9 @@ html, body {
 header {                /* Added by Aaron -
                         <<< NOTE -> 'header' and 'navbar' seem to be the same thing...? >>> */
   background: lightskyblue; /* overriden by the 'navbar' background element - delete later... */
-  padding: 15px;
+  padding: 10px;
   padding-top: 2em;
+  padding-bottom: 1em;
 }
 
 body {             /*  --> Added by Aaron --> work on this later... */
@@ -25,8 +26,8 @@ body {             /*  --> Added by Aaron --> work on this later... */
 
 .navbar {               /* Added by Aaron - try messing around with this... */
   background: slategray;
-  text-align: right;
-  padding-right: 2em;
+  text-align: center;
+  /*padding-right: 5em;*/
   /*position: fixed;    -> kinda want to make this 'static' so it doesn't disappear when scrolling up... not a big priority
   width: 100%;*/
 }
@@ -55,7 +56,7 @@ body {             /*  --> Added by Aaron --> work on this later... */
   width: 20%;
   text-align: left;
   padding-right: 10%;
-  margin-top: 0;
+  margin: auto;
 }
 
 /* - Staff Directory - */
@@ -102,6 +103,19 @@ body {             /*  --> Added by Aaron --> work on this later... */
 
 /* - FAQs and Testimonials - */
 .nav-link5 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
+  color: white;
+  border-radius: 5px;
+  background-color: blue;
+  padding: 5px;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-right: 3em;    /* !!! Creates spacing between each navbar link (given that each navbar element has a different 'classname')*/
+  text-decoration: none;
+  font-weight: bold;
+  /*text-align: right;*/
+}
+
+.nav-link6 {            /* !!! IMPORTANT - classname "nav-link" has been changed for this navbar element... remember this - if problems arise, change classname back to "nav-link" in Body.tsx... */
   color: white;
   border-radius: 5px;
   background-color: blue;
